@@ -1,0 +1,60 @@
+---
+import Container from '@/components/Container.astro';
+import { SITE } from '@/config/site';
+---
+
+<header id="navbar" class="sticky top-0 z-50 bg-surface border-b border-border/50" data-ps="src/components/Navigation.astro:dt8k87">
+  <nav class="h-[74px] flex items-center" data-ps="src/components/Navigation.astro:m59h3b">
+    <Container class="flex justify-between items-center h-full">
+      <a href="/" class="text-[24px] font-normal text-foreground no-underline" data-ps="src/components/Navigation.astro:kd8n5y">
+        <span class="font-bold" data-ps="src/components/Navigation.astro:i2om6g">Schlüsseldienst</span> München
+      </a>
+
+      <div class="hidden md:flex gap-[30px] items-center ml-auto" data-ps="src/components/Navigation.astro:gqvsdd">
+        <a href="/" class="relative text-[14px] font-bold text-foreground no-underline uppercase tracking-normal group" data-ps="src/components/Navigation.astro:kd8n5x">
+          Schlüsseldienst München
+          <div class="absolute bottom-[-28px] left-0 right-0 h-[3px] bg-secondary" data-ps="src/components/Navigation.astro:gqvsde"></div>
+        </a>
+        <a href="/autooeffnung/" class="text-[14px] font-bold text-foreground no-underline uppercase tracking-normal" data-ps="src/components/Navigation.astro:kd8n5y">Autoöffnung</a>
+        <a href="/tresoroeffnung/" class="text-[14px] font-bold text-foreground no-underline uppercase tracking-normal" data-ps="src/components/Navigation.astro:kd8n5z">Tresoröffnung</a>
+        <a href="/sicherheitstechnik/" class="text-[14px] font-bold text-foreground no-underline uppercase tracking-normal" data-ps="src/components/Navigation.astro:kd8n60">Sicherheitstechnik</a>
+        <a href="/ueber-uns/" class="text-[14px] font-bold text-foreground no-underline uppercase tracking-normal" data-ps="src/components/Navigation.astro:kd8n61">Über uns</a>
+      </div>
+
+      <button
+        id="mobile-menu-button"
+        type="button"
+        class="md:hidden p-2 text-foreground"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+       data-ps="src/components/Navigation.astro:5ds1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </Container>
+  </nav>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-surface border-t border-border"
+   data-ps="src/components/Navigation.astro:gqvsde">
+    <nav class="flex flex-col py-4 px-6 gap-2" data-ps="src/components/Navigation.astro:m59h37">
+      <a href="/" class="text-[14px] font-bold py-3 text-foreground no-underline uppercase" data-ps="src/components/Navigation.astro:kd8n5x">Schlüsseldienst München</a>
+      <a href="/autooeffnung/" class="text-[14px] font-bold py-3 text-foreground no-underline uppercase" data-ps="src/components/Navigation.astro:kd8n5w">Autoöffnung</a>
+      <a href="/tresoroeffnung/" class="text-[14px] font-bold py-3 text-foreground no-underline uppercase" data-ps="src/components/Navigation.astro:kd8n5v">Tresoröffnung</a>
+      <a href="/sicherheitstechnik/" class="text-[14px] font-bold py-3 text-foreground no-underline uppercase" data-ps="src/components/Navigation.astro:kd8n5u">Sicherheitstechnik</a>
+      <a href="/ueber-uns/" class="text-[14px] font-bold py-3 text-foreground no-underline uppercase" data-ps="src/components/Navigation.astro:kd8n5t">Über uns</a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

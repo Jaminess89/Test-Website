@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# TODO: Nach Einführung der finalen Domain die Sitemap-URL ergänzen, z. B.:
-# Sitemap: https://www.rauchmelder-express.de/sitemap-index.xml
