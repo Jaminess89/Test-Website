@@ -1,0 +1,201 @@
+/* ==========================================================================
+   Rauchmelder Express – Globales Design-System
+   Tokens, Reset und Utilities. Komponenten-Stile bleiben in den Komponenten.
+   ========================================================================== */
+
+:root {
+  /* Farben */
+  --color-navy-950: #07182d;
+  --color-navy-900: #0a2545;
+  --color-navy-800: #10365f;
+  --color-blue-700: #185b91;
+  --color-blue-100: #eaf2f8;
+  --color-blue-50: #f4f8fb;
+
+  --color-emerald-700: #167a42;
+  --color-emerald-600: #209b52;
+  --color-emerald-500: #28ad5e;
+  --color-emerald-50: #edf8f1;
+
+  --color-gold-600: #9b7a3f;
+  --color-gold-500: #b89a5b;
+  --color-gold-100: #eee5d2;
+
+  --color-text: #172235;
+  --color-text-muted: #5e6878;
+  --color-border: #dce3e9;
+  --color-border-premium: #d9cfbb;
+
+  --color-white: #ffffff;
+  --color-ivory: #fbfaf7;
+  --color-surface-soft: #f5f6f7;
+  --color-surface-blue: #f2f7fb;
+
+  --color-error: #b42318;
+  --color-error-bg: #fef3f2;
+  --color-warning: #b54708;
+  --color-warning-bg: #fffaeb;
+
+  /* Typografie */
+  --font-sans:
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
+    sans-serif;
+
+  /* Layout */
+  --container-max: 1200px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section-space: clamp(3.5rem, 8vw, 6.5rem);
+  --header-offset: 6.5rem;
+
+  /* Effekte */
+  --shadow-sm: 0 1px 2px rgb(7 24 45 / 0.05), 0 2px 8px rgb(7 24 45 / 0.06);
+  --shadow-md: 0 4px 12px rgb(7 24 45 / 0.08), 0 10px 28px rgb(7 24 45 / 0.09);
+  --radius: 0.75rem;
+  --radius-lg: 1.125rem;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-offset);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: var(--color-blue-700);
+  text-underline-offset: 0.15em;
+}
+
+/* ---------- Typografie ---------- */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-navy-900);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  letter-spacing: -0.01em;
+}
+
+p {
+  max-width: 68ch;
+  text-wrap: pretty;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+/* ---------- Fokus & Bewegung ---------- */
+:focus-visible {
+  outline: 2px solid var(--color-emerald-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Utilities ---------- */
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-start: -4rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-navy-900);
+  color: var(--color-white);
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: inset-block-start 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  inset-block-start: 0;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

@@ -1,0 +1,104 @@
+---
+import { brand, contact, districts, faqItems } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+}
+
+const { title, description, canonicalPath = "/" } = Astro.props;
+const siteUrl = Astro.site ?? new URL("https://example.com");
+const canonicalUrl = new URL(canonicalPath, siteUrl);
+const ogImage = new URL("/social-preview-placeholder.svg", siteUrl);
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: brand.name,
+  description,
+  url: siteUrl.toString(),
+  telephone: contact.phoneHref.replace("tel:", ""),
+  email: contact.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: contact.street,
+    postalCode: "",
+    addressLocality: "Berlin",
+    addressCountry: "DE",
+  },
+  areaServed: [
+    { "@type": "State", name: "Berlin" },
+    { "@type": "State", name: "Brandenburg" },
+    ...districts.map((name) => ({ "@type": "AdministrativeArea" as const, name })),
+  ],
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a2545" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content={brand.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <slot />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    inset-block-start: -100%;
+    inset-inline-start: 1rem;
+    z-index: 200;
+    padding: 0.75rem 1.25rem;
+    background: var(--color-navy-900);
+    color: var(--color-white);
+    border-radius: var(--radius);
+    font-weight: 700;
+    text-decoration: none;
+    transition: inset-block-start 0.2s ease;
+  }
+
+  .skip-link:focus-visible {
+    inset-block-start: 1rem;
+  }
+</style>

@@ -1,0 +1,108 @@
+---
+import { caseStudy } from "../data/site";
+import Container from "./ui/Container.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+import PictureFrame from "./ui/PictureFrame.astro";
+---
+
+<section class="section" id="beispiel">
+  <Container>
+    <SectionHeading
+      overline="Musterbeispiel"
+      title="So kann ein Auftrag aussehen"
+      lead="Alle Angaben sind ein fiktives Beispiel – keine echten Kundendaten."
+    />
+    <div class="layout">
+      {/* TODO: Platzhalter durch echtes Foto ersetzen (siehe README) */}
+      <PictureFrame
+        src="/images/case-study-placeholder.svg"
+        alt="Beispiel eines gepflegten Berliner Mehrfamilienhauses mit grünem Vorgarten"
+        width={800}
+        height={600}
+        ratio="4 / 3"
+      />
+      <div class="panel">
+        <p class="panel__label">{caseStudy.label}</p>
+        <h3 class="panel__object">{caseStudy.object}</h3>
+        <dl class="panel__stats">
+          {
+            caseStudy.stats.map((stat) => (
+              <div class="panel__stat">
+                <dt>{stat.label}</dt>
+                <dd>{stat.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .section {
+    padding-block: var(--section-space);
+    background: var(--color-white);
+  }
+
+  .layout {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .panel {
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: var(--color-ivory);
+    border: 1px solid var(--color-border-premium);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .panel__label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold-600);
+    margin-block-end: 0.5rem;
+  }
+
+  .panel__object {
+    margin-block-end: 1.5rem;
+  }
+
+  .panel__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .panel__stat {
+    padding: 1rem 1.15rem;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .panel__stat dt {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+  }
+
+  .panel__stat dd {
+    margin: 0.2rem 0 0;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-navy-900);
+    line-height: 1.1;
+  }
+
+  @media (min-width: 900px) {
+    .layout {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
+    }
+  }
+</style>
