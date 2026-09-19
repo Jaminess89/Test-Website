@@ -5,24 +5,35 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="pruefung">
+<section class="section" id="pruefung" data-ps="src/components/InspectionScope.astro:4k9kt3">
   <Container>
-    <SectionHeading overline="Klare Leistung" title="Was wir kontrollieren" />
-    <ul class="grid" role="list">
-      {
-        inspectionItems.map((item) => (
-          <li class="item">
-            <span class="item__icon">
-              <Icon name={item.icon} size={22} />
-            </span>
-            <div>
-              <h3 class="item__title">{item.title}</h3>
-              {item.text && <p class="item__text">{item.text}</p>}
-            </div>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="layout-split" data-ps="src/components/InspectionScope.astro:79welt">
+      <div class="layout-content" data-ps="src/components/InspectionScope.astro:79wels">
+        <SectionHeading overline="Klare Leistung" title="Was wir kontrollieren" />
+        <ul class="grid-list" role="list">
+          {
+            inspectionItems.map((item, __psIdx) => (
+              <li class="item" data-ps={`src/components/InspectionScope.astro:ydi4mj-${__psIdx}`}>
+                <span class="item__icon" data-ps={`src/components/InspectionScope.astro:i7o8vq-${__psIdx}`}>
+                  <Icon name={item.icon} size={22} />
+                </span>
+                <div data-ps={`src/components/InspectionScope.astro:79welq-${__psIdx}`}>
+                  <h3 class="item__title" data-ps={`src/components/InspectionScope.astro:l4hsfc-${__psIdx}`}>{item.title}</h3>
+                  {item.text && <p class="item__text" data-ps={`src/components/InspectionScope.astro:xzt27j-${__psIdx}`}>{item.text}</p>}
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="layout-image" data-ps="src/components/InspectionScope.astro:79welr">
+        <img 
+          src="https://pagesmith-cdn.com/ceb8c319/images/Bildschirmfoto-2026-07-26-um-12.41.09-1536-1536.webp" 
+          alt="Rauchmelder Prüfung" 
+          class="inspection-img" data-ps="src/components/InspectionScope.astro:xvyoq2" />
+        <div class="image-fade" data-ps="src/components/InspectionScope.astro:79welq"></div>
+      </div>
+    </div>
   </Container>
 </section>
 
@@ -32,12 +43,65 @@ import Icon from "./ui/Icon.astro";
     background: var(--color-white);
   }
 
-  .grid {
+  .layout-split {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .layout-split {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .layout-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .grid-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
     gap: 1rem;
     padding: 0;
     list-style: none;
+    margin-top: 2rem;
+  }
+
+  .layout-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    min-height: 400px;
+  }
+
+  .inspection-img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.05));
+  }
+
+  .image-fade {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 20%, var(--color-white) 80%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 1023px) {
+    .layout-image {
+      order: -1;
+      min-height: 300px;
+    }
+    .image-fade {
+      background: radial-gradient(circle at center, transparent 30%, var(--color-white) 90%);
+    }
   }
 
   .item {

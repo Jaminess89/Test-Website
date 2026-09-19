@@ -12,9 +12,9 @@ const trustPoints = [
 ];
 ---
 
-<section class="section" id="angebot">
+<section class="section" id="angebot" data-ps="src/components/QuoteForm.astro:de9uec">
   <Container>
-    <div class="panel">
+    <div class="panel" data-ps="src/components/QuoteForm.astro:g91bp9">
       <SectionHeading
         overline="Unverbindlich anfragen"
         title="Ihr Festpreis-Angebot"
@@ -28,7 +28,7 @@ const trustPoints = [
         tabindex="-1"
         hidden
         data-form-status
-      ></div>
+       data-ps="src/components/QuoteForm.astro:g91bpa"></div>
 
       <form
         class="form"
@@ -38,25 +38,25 @@ const trustPoints = [
         data-quote-form
         data-endpoint={endpoint}
       >
-        <div class="field">
-          <label for="leistung">Leistung <span aria-hidden="true">*</span></label>
+        <div class="field" data-ps="src/components/QuoteForm.astro:g91bpb">
+          <label for="leistung" data-ps="src/components/QuoteForm.astro:5v3on7">Leistung <span aria-hidden="true" data-ps="src/components/QuoteForm.astro:15jh4j">*</span></label>
           <select id="leistung" name="leistung" required>
             <option value="">Bitte wählen</option>
             {serviceOptions.map((option) => <option value={option}>{option}</option>)}
           </select>
-          <p class="field__error" id="leistung-error" hidden>Bitte wählen Sie eine Leistung.</p>
+          <p class="field__error" id="leistung-error" hidden data-ps="src/components/QuoteForm.astro:3bdy30">Bitte wählen Sie eine Leistung.</p>
         </div>
 
-        <div class="field">
-          <label for="bezirk">Berliner Bezirk</label>
+        <div class="field" data-ps="src/components/QuoteForm.astro:wlp3l5">
+          <label for="bezirk" data-ps="src/components/QuoteForm.astro:5v3on8">Berliner Bezirk</label>
           <select id="bezirk" name="bezirk">
             <option value="">Bitte wählen (optional)</option>
             {districtOptions.map((option) => <option value={option}>{option}</option>)}
           </select>
         </div>
 
-        <div class="field">
-          <label for="plz">Postleitzahl <span aria-hidden="true">*</span></label>
+        <div class="field" data-ps="src/components/QuoteForm.astro:wlp3l6">
+          <label for="plz" data-ps="src/components/QuoteForm.astro:5v3on9">Postleitzahl <span aria-hidden="true" data-ps="src/components/QuoteForm.astro:15jh4k">*</span></label>
           <input
             id="plz"
             name="plz"
@@ -67,11 +67,11 @@ const trustPoints = [
             autocomplete="postal-code"
             required
           />
-          <p class="field__error" id="plz-error" hidden>Bitte geben Sie eine fünfstellige PLZ ein.</p>
+          <p class="field__error" id="plz-error" hidden data-ps="src/components/QuoteForm.astro:3bdy2z">Bitte geben Sie eine fünfstellige PLZ ein.</p>
         </div>
 
-        <div class="field">
-          <label for="wohnungen">Anzahl der Wohnungen <span aria-hidden="true">*</span></label>
+        <div class="field" data-ps="src/components/QuoteForm.astro:wlp3l7">
+          <label for="wohnungen" data-ps="src/components/QuoteForm.astro:5v3ona">Anzahl der Wohnungen <span aria-hidden="true" data-ps="src/components/QuoteForm.astro:15jh4l">*</span></label>
           <input
             id="wohnungen"
             name="wohnungen"
@@ -81,46 +81,46 @@ const trustPoints = [
             inputmode="numeric"
             required
           />
-          <p class="field__error" id="wohnungen-error" hidden>Bitte geben Sie die Anzahl der Wohnungen an.</p>
+          <p class="field__error" id="wohnungen-error" hidden data-ps="src/components/QuoteForm.astro:3bdy2y">Bitte geben Sie die Anzahl der Wohnungen an.</p>
         </div>
 
-        <div class="field">
-          <label for="name">Name <span aria-hidden="true">*</span></label>
+        <div class="field" data-ps="src/components/QuoteForm.astro:wlp3l8">
+          <label for="name" data-ps="src/components/QuoteForm.astro:5v3onb">Name <span aria-hidden="true" data-ps="src/components/QuoteForm.astro:15jh4m">*</span></label>
           <input id="name" name="name" type="text" autocomplete="name" required />
-          <p class="field__error" id="name-error" hidden>Bitte geben Sie Ihren Namen an.</p>
+          <p class="field__error" id="name-error" hidden data-ps="src/components/QuoteForm.astro:3bdy2x">Bitte geben Sie Ihren Namen an.</p>
         </div>
 
-        <div class="field">
-          <label for="email">E-Mail</label>
+        <div class="field" data-ps="src/components/QuoteForm.astro:wlp3l9">
+          <label for="email" data-ps="src/components/QuoteForm.astro:5v3onx">E-Mail</label>
           <input id="email" name="email" type="email" autocomplete="email" aria-describedby="contact-error" />
-          <p class="field__error" id="email-error" hidden>Bitte geben Sie eine gültige E-Mail-Adresse ein.</p>
+          <p class="field__error" id="email-error" hidden data-ps="src/components/QuoteForm.astro:3bdy2w">Bitte geben Sie eine gültige E-Mail-Adresse ein.</p>
         </div>
 
-        <div class="field">
-          <label for="telefon">Telefonnummer</label>
+        <div class="field" data-ps="src/components/QuoteForm.astro:wlp3la">
+          <label for="telefon" data-ps="src/components/QuoteForm.astro:5v3ony">Telefonnummer</label>
           <input id="telefon" name="telefon" type="tel" autocomplete="tel" aria-describedby="contact-error" />
         </div>
 
-        <div class="field field--full">
-          <p class="field__error" id="contact-error" hidden>
+        <div class="field field--full" data-ps="src/components/QuoteForm.astro:wlp3lb">
+          <p class="field__error" id="contact-error" hidden data-ps="src/components/QuoteForm.astro:3bdy2v">
             Bitte geben Sie mindestens eine Kontaktmöglichkeit an: E-Mail oder Telefonnummer.
           </p>
         </div>
 
-        <div class="field field--full">
-          <label for="nachricht">Nachricht <span class="field__optional">(optional)</span></label>
+        <div class="field field--full" data-ps="src/components/QuoteForm.astro:wlp3lc">
+          <label for="nachricht" data-ps="src/components/QuoteForm.astro:5v3onz">Nachricht <span class="field__optional" data-ps="src/components/QuoteForm.astro:15jh4n">(optional)</span></label>
           <textarea id="nachricht" name="nachricht" rows="4"></textarea>
         </div>
 
         {/* Honeypot-Feld gegen Spam (für Menschen unsichtbar) */}
-        <div class="field field--hp" aria-hidden="true">
-          <label for="firma-hp">Firma</label>
+        <div class="field field--hp" aria-hidden="true" data-ps="src/components/QuoteForm.astro:wlp3ld">
+          <label for="firma-hp" data-ps="src/components/QuoteForm.astro:5v3oo0">Firma</label>
           <input id="firma-hp" name="firma" type="text" tabindex="-1" autocomplete="off" />
         </div>
 
-        <div class="field field--full form__actions">
+        <div class="field field--full form__actions" data-ps="src/components/QuoteForm.astro:wlp3le">
           <button type="submit" class="submit" data-submit-button>
-            <span data-submit-label>Kostenloses Festpreis-Angebot erhalten</span>
+            <span data-submit-label data-ps="src/components/QuoteForm.astro:15jh4o">Kostenloses Festpreis-Angebot erhalten</span>
           </button>
           <ul class="form__trust" role="list">
             {

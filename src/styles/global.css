@@ -1,7 +1,10 @@
-/* ==========================================================================
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* --------------------------------------------------------------------------
    Rauchmelder Express – Globales Design-System
    Tokens, Reset und Utilities. Komponenten-Stile bleiben in den Komponenten.
-   ========================================================================== */
+   -------------------------------------------------------------------------- */
 
 :root {
   /* Farben */

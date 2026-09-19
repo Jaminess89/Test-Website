@@ -5,18 +5,18 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="vorteile">
+<section class="section" id="vorteile" data-ps="src/components/Benefits.astro:4zvfrm">
   <Container>
     <SectionHeading title="Weniger Aufwand. Mehr Überblick." />
     <ul class="grid" role="list">
       {
-        benefits.map((benefit) => (
-          <li class="tile">
-            <span class="tile__icon">
+        benefits.map((benefit, __psIdx) => (
+          <li class="tile" data-ps={`src/components/Benefits.astro:uchcu6-${__psIdx}`}>
+            <span class="tile__icon" data-ps={`src/components/Benefits.astro:ryhiht-${__psIdx}`}>
               <Icon name={benefit.icon} size={26} />
             </span>
-            <h3 class="tile__title">{benefit.title}</h3>
-            <p class="tile__text">{benefit.text}</p>
+            <h3 class="tile__title" data-ps={`src/components/Benefits.astro:rfmcxr-${__psIdx}`}>{benefit.title}</h3>
+            <p class="tile__text" data-ps={`src/components/Benefits.astro:x9fneu-${__psIdx}`}>{benefit.text}</p>
           </li>
         ))
       }

@@ -5,7 +5,7 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="bezirke">
+<section class="section" id="bezirke" data-ps="src/components/BerlinDistricts.astro:w3dbw9">
   <Container>
     <SectionHeading
       overline="Regional in Berlin"
@@ -14,19 +14,19 @@ import Icon from "./ui/Icon.astro";
     />
     <ul class="grid" role="list" data-district-grid>
       {
-        districts.map((district) => (
-          <li>
+        districts.map((district, __psIdx) => (
+          <li data-ps={`src/components/BerlinDistricts.astro:tbz2q7-${__psIdx}`}>
             <button
               type="button"
               class="card"
               data-district={district}
               aria-describedby="district-hint"
-            >
-              <span class="card__icon">
+             data-ps={`src/components/BerlinDistricts.astro:6pkefm-${__psIdx}`}>
+              <span class="card__icon" data-ps={`src/components/BerlinDistricts.astro:3tse25-${__psIdx}`}>
                 <Icon name="map-pin" size={20} />
               </span>
-              <span class="card__name">{district}</span>
-              <span class="card__arrow">
+              <span class="card__name" data-ps={`src/components/BerlinDistricts.astro:3tse24-${__psIdx}`}>{district}</span>
+              <span class="card__arrow" data-ps={`src/components/BerlinDistricts.astro:3tse23-${__psIdx}`}>
                 <Icon name="arrow-right" size={18} />
               </span>
             </button>
@@ -34,7 +34,7 @@ import Icon from "./ui/Icon.astro";
         ))
       }
     </ul>
-    <p class="visually-hidden" id="district-hint">
+    <p class="visually-hidden" id="district-hint" data-ps="src/components/BerlinDistricts.astro:emgrtc">
       Wählt den Bezirk im Anfrageformular aus und springt zum Formular.
     </p>
   </Container>

@@ -3,12 +3,12 @@ import { contact } from "../data/site";
 import Icon from "./ui/Icon.astro";
 ---
 
-<div class="topbar">
-  <div class="topbar__inner">
-    <p class="topbar__claim">Rauchmelder-Service für Vermieter in Berlin & Brandenburg</p>
-    <a class="topbar__phone" href={contact.phoneHref}>
+<div class="topbar" data-ps="src/components/TopBar.astro:nn1szb">
+  <div class="topbar__inner" data-ps="src/components/TopBar.astro:nn1szc">
+    <p class="topbar__claim" data-ps="src/components/TopBar.astro:vuu83c">Rauchmelder-Service für Vermieter in Berlin & Brandenburg</p>
+    <a class="topbar__phone" href={contact.phoneHref} data-ps="src/components/TopBar.astro:w33g44">
       <Icon name="phone" size={15} />
-      <span>{contact.phoneDisplay}</span>
+      <span data-ps="src/components/TopBar.astro:y5a9pf">{contact.phoneDisplay}</span>
     </a>
   </div>
 </div>

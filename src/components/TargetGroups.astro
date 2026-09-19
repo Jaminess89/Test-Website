@@ -6,7 +6,7 @@ import Button from "./ui/Button.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="zielgruppen">
+<section class="section" id="zielgruppen" data-ps="src/components/TargetGroups.astro:xhh6rc">
   <Container>
     <SectionHeading
       overline="Für Eigentümer und Verwaltungen"
@@ -15,18 +15,18 @@ import Icon from "./ui/Icon.astro";
     />
     <ul class="grid" role="list">
       {
-        targetGroups.map((group) => (
-          <li class="card">
-            <span class="card__icon">
+        targetGroups.map((group, __psIdx) => (
+          <li class="card" data-ps={`src/components/TargetGroups.astro:65celw-${__psIdx}`}>
+            <span class="card__icon" data-ps={`src/components/TargetGroups.astro:vnbp2j-${__psIdx}`}>
               <Icon name={group.icon} size={26} />
             </span>
-            <h3 class="card__title">{group.title}</h3>
-            <p class="card__text">{group.text}</p>
+            <h3 class="card__title" data-ps={`src/components/TargetGroups.astro:jecqt3-${__psIdx}`}>{group.title}</h3>
+            <p class="card__text" data-ps={`src/components/TargetGroups.astro:60h234-${__psIdx}`}>{group.text}</p>
           </li>
         ))
       }
     </ul>
-    <div class="cta-row">
+    <div class="cta-row" data-ps="src/components/TargetGroups.astro:axgylt">
       <Button href="#angebot" arrow>Passende Lösung anfragen</Button>
     </div>
   </Container>

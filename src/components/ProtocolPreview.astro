@@ -13,7 +13,7 @@ const metaItems = [
 ];
 ---
 
-<section class="section" id="pruefprotokoll">
+<section class="section" id="pruefprotokoll" data-ps="src/components/ProtocolPreview.astro:8y6kya">
   <Container>
     <SectionHeading
       overline="Digital dokumentiert"
@@ -21,9 +21,9 @@ const metaItems = [
       lead="Prüfung, Zustand und Maßnahmen übersichtlich zusammengefasst."
     />
 
-    <div class="dashboard">
-      <aside class="dashboard__side" aria-label="Beispiel-Navigation">
-        <span class="dashboard__brand">Rauchmelder Express</span>
+    <div class="dashboard" data-ps="src/components/ProtocolPreview.astro:upakl">
+      <aside class="dashboard__side" aria-label="Beispiel-Navigation" data-ps="src/components/ProtocolPreview.astro:jyodhx">
+        <span class="dashboard__brand" data-ps="src/components/ProtocolPreview.astro:wj57ep">Rauchmelder Express</span>
         <ul role="list">
           {
             sidebarItems.map((item, index) => (
@@ -32,7 +32,7 @@ const metaItems = [
                   "dashboard__side-item",
                   { "dashboard__side-item--active": index === 2 },
                 ]}
-              >
+               data-ps={`src/components/ProtocolPreview.astro:4jfrs2-${index}`}>
                 {item}
               </li>
             ))
@@ -40,16 +40,16 @@ const metaItems = [
         </ul>
       </aside>
 
-      <div class="dashboard__main">
-        <div class="dashboard__head">
-          <h3>Prüfprotokoll – Musterstraße 12</h3>
-          <span class="dashboard__badge">Beispiel</span>
+      <div class="dashboard__main" data-ps="src/components/ProtocolPreview.astro:upakk">
+        <div class="dashboard__head" data-ps="src/components/ProtocolPreview.astro:upakj">
+          <h3 data-ps="src/components/ProtocolPreview.astro:jytli2">Prüfprotokoll – Musterstraße 12</h3>
+          <span class="dashboard__badge" data-ps="src/components/ProtocolPreview.astro:wj57eq">Beispiel</span>
         </div>
 
         <dl class="dashboard__meta">
           {
-            metaItems.map((meta) => (
-              <div class="dashboard__meta-item">
+            metaItems.map((meta, __psIdx) => (
+              <div class="dashboard__meta-item" data-ps={`src/components/ProtocolPreview.astro:upaki-${__psIdx}`}>
                 <dt>{meta.label}</dt>
                 <dd>{meta.value}</dd>
               </div>
@@ -57,7 +57,7 @@ const metaItems = [
           }
         </dl>
 
-        <div class="dashboard__table-wrap" tabindex="0" role="region" aria-label="Beispiel-Prüftabelle, horizontal scrollbar">
+        <div class="dashboard__table-wrap" tabindex="0" role="region" aria-label="Beispiel-Prüftabelle, horizontal scrollbar" data-ps="src/components/ProtocolPreview.astro:upakh">
           <table class="dashboard__table">
             <thead>
               <tr>
@@ -69,11 +69,11 @@ const metaItems = [
             </thead>
             <tbody>
               {
-                protocolRows.map((row) => (
+                protocolRows.map((row, __psIdx) => (
                   <tr>
                     <th scope="row">{row.room}</th>
                     <td>
-                      <span class:list={["status", `status--${row.status}`]}>
+                      <span class:list={["status", `status--${row.status}`]} data-ps={`src/components/ProtocolPreview.astro:wj57er-${__psIdx}`}>
                         {row.statusLabel}
                       </span>
                     </td>
@@ -86,8 +86,8 @@ const metaItems = [
           </table>
         </div>
 
-        <div class="dashboard__actions">
-          <button type="button" class="pdf-btn" data-dialog-open="protocol-dialog">
+        <div class="dashboard__actions" data-ps="src/components/ProtocolPreview.astro:upakg">
+          <button type="button" class="pdf-btn" data-dialog-open="protocol-dialog" data-ps="src/components/ProtocolPreview.astro:7pbvun">
             <Icon name="download" size={17} />
             Beispielprotokoll ansehen
           </button>
@@ -96,42 +96,26 @@ const metaItems = [
     </div>
 
     <dialog class="dialog" id="protocol-dialog" aria-labelledby="protocol-dialog-title">
-      <div class="dialog__head">
-        <h3 id="protocol-dialog-title">Beispielprotokoll – Musterstraße 12</h3>
-        <button type="button" class="dialog__close" data-dialog-close aria-label="Dialog schließen">
-          <Icon name="close" size={20} />
-        </button>
+      <div class="dialog__head" data-ps="src/components/ProtocolPreview.astro:upakf">
+        <h3 id="protocol-dialog-title" data-ps="src/components/ProtocolPreview.astro:jytli1">Vorschau: Muster-Prüfprotokoll</h3>
+        <div class="dialog__controls" data-ps="src/components/ProtocolPreview.astro:upake">
+          <a href="https://pagesmith-cdn.com/ceb8c319/files/rauchmelder-express-muster-pruefprotokoll.pdf" download class="dialog__download" data-ps="src/components/ProtocolPreview.astro:download-pdf">
+            <Icon name="download" size={18} />
+            <span data-ps="src/components/ProtocolPreview.astro:a7q8mh">PDF laden</span>
+          </a>
+          <button type="button" class="dialog__close" data-dialog-close aria-label="Dialog schließen" data-ps="src/components/ProtocolPreview.astro:7pbvuo">
+            <Icon name="close" size={20} />
+          </button>
+        </div>
       </div>
-      <p class="dialog__hint">
-        Ausschnitt eines digitalen Prüfprotokolls. Alle Angaben sind ein fiktives Beispiel.
-      </p>
-      <div class="dashboard__table-wrap" tabindex="0" role="region" aria-label="Vollständige Beispiel-Prüftabelle, horizontal scrollbar">
-        <table class="dashboard__table">
-          <thead>
-            <tr>
-              <th scope="col">Raum</th>
-              <th scope="col">Zustand</th>
-              <th scope="col">Maßnahme</th>
-              <th scope="col">Nächster Termin</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              protocolRows.map((row) => (
-                <tr>
-                  <th scope="row">{row.room}</th>
-                  <td>
-                    <span class:list={["status", `status--${row.status}`]}>
-                      {row.statusLabel}
-                    </span>
-                  </td>
-                  <td>{row.action}</td>
-                  <td>{row.next}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+      
+      <div class="dialog__content" data-ps="src/components/ProtocolPreview.astro:pdf-container">
+        <iframe 
+          src="https://pagesmith-cdn.com/ceb8c319/files/rauchmelder-express-muster-pruefprotokoll.pdf#toolbar=0" 
+          class="dialog__pdf"
+          title="Muster-Prüfprotokoll PDF"
+          loading="lazy"
+        ></iframe>
       </div>
     </dialog>
   </Container>
@@ -358,15 +342,18 @@ const metaItems = [
   }
 
   .dialog {
-    width: min(42rem, calc(100vw - 2rem));
-    padding: clamp(1.25rem, 3vw, 2rem);
+    width: min(64rem, calc(100vw - 2rem));
+    max-height: 90vh;
+    padding: 0;
     border: 1px solid var(--color-border-premium);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
+    overflow: hidden;
   }
 
   .dialog::backdrop {
-    background: rgb(7 24 45 / 0.55);
+    background: rgb(7 24 45 / 0.6);
+    backdrop-filter: blur(4px);
   }
 
   .dialog__head {
@@ -374,25 +361,57 @@ const metaItems = [
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    margin-block-end: 0.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-white);
+    border-block-end: 1px solid var(--color-border);
+  }
+
+  .dialog__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .dialog__download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-emerald-700);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius);
+    background: var(--color-emerald-50);
   }
 
   .dialog__close {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     border: 1px solid var(--color-border);
     border-radius: 50%;
     background: var(--color-white);
     color: var(--color-navy-900);
+    transition: all 0.2s ease;
   }
 
-  .dialog__hint {
-    font-size: 0.88rem;
-    color: var(--color-text-muted);
-    margin-block-end: 1.25rem;
+  .dialog__close:hover {
+    background: var(--color-surface-soft);
+    transform: scale(1.05);
+  }
+
+  .dialog__content {
+    height: 75vh;
+    background: var(--color-surface-soft);
+  }
+
+  .dialog__pdf {
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
   @media (min-width: 800px) {

@@ -11,40 +11,40 @@ const heroBenefits = [
 ];
 ---
 
-<section class="hero" id="start">
-  <div class="hero__inner">
-    <div class="hero__content">
-      <p class="hero__label">Rauchmelder-Service Berlin</p>
-      <h1 class="hero__title">
+<section class="hero" id="start" data-ps="src/components/Hero.astro:obc71s">
+  <div class="hero__inner" data-ps="src/components/Hero.astro:4tiz21">
+    <div class="hero__content" data-ps="src/components/Hero.astro:4tiz22">
+      <p class="hero__label" data-ps="src/components/Hero.astro:kveqh6">Rauchmelder-Service Berlin</p>
+      <h1 class="hero__title" data-ps="src/components/Hero.astro:hr32m7">
         Rauchmelder geprüft.<br />Nachweis vollständig.
       </h1>
-      <p class="hero__text">
+      <p class="hero__text" data-ps="src/components/Hero.astro:kveqh5">
         Montage, Prüfung und Austausch für Vermieter – inklusive digitalem
         Prüfprotokoll für jede Wohnung.
       </p>
       <ul class="hero__benefits" role="list">
         {
-          heroBenefits.map((benefit) => (
-            <li>
-              <span class="hero__check"><Icon name="check" size={14} /></span>
+          heroBenefits.map((benefit, __psIdx) => (
+            <li data-ps={`src/components/Hero.astro:vup7bp-${__psIdx}`}>
+              <span class="hero__check" data-ps={`src/components/Hero.astro:7d91ut-${__psIdx}`}><Icon name="check" size={14} /></span>
               {benefit}
             </li>
           ))
         }
       </ul>
-      <div class="hero__actions">
-        <Button href={cta.primaryHref} size="lg" arrow>{cta.primary}</Button>
-        <a class="hero__phone" href={contact.phoneHref}>
+      <div class="hero__actions" data-ps="src/components/Hero.astro:4tiz23">
+        <Button href={cta.primaryHref} size="lg" arrow data-ps="src/components/Hero.astro:vu29l8">{cta.primary}</Button>
+        <a class="hero__phone" href={contact.phoneHref} data-ps="src/components/Hero.astro:nqe5n">
           <Icon name="phone" size={18} />
           Persönlich beraten lassen
         </a>
       </div>
-      <p class="hero__trust">Unverbindlich · regional · persönlich</p>
+      <p class="hero__trust" data-ps="src/components/Hero.astro:kveqh4">Unverbindlich · regional · persönlich</p>
     </div>
-    <div class="hero__media">
+    <div class="hero__media" data-ps="src/components/Hero.astro:4tiz24">
       {/* TODO: Platzhalter durch echtes Foto ersetzen (siehe README) */}
       <PictureFrame
-        src="/images/hero-technician-placeholder.svg"
+        src="https://pagesmith-cdn.com/ceb8c319/images/Bildschirmfoto-2026-07-26-um-12.30.54-1536.webp"
         alt="Servicetechniker von Rauchmelder Express prüft mit einem Tablet einen Rauchwarnmelder in einer hellen Mietwohnung"
         width={640}
         height={800}

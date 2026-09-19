@@ -52,6 +52,7 @@ export interface Benefit {
 export interface ProcessStep {
   title: string;
   text: string;
+  buttonLabel: string;
 }
 
 export interface ProtocolRow {
@@ -243,15 +244,18 @@ export const benefits: Benefit[] = [
 export const processSteps: ProcessStep[] = [
   {
     title: "Objekt angeben",
-    text: "Wohnungen, Standort und Leistung mitteilen.",
+    text: "Ein paar Angaben zu Ihrem Objekt machen.",
+    buttonLabel: "Jetzt angeben",
   },
   {
     title: "Angebot erhalten",
-    text: "Sie erhalten ein klares Angebot und einen Termin.",
+    text: "Sie erhalten Ihr Festpreis-Angebot schnell.",
+    buttonLabel: "Angebot erhalten",
   },
   {
     title: "Protokoll erhalten",
-    text: "Nach dem Service erhalten Sie die Dokumentation.",
+    text: "Prüfung durchgeführt und Protokoll digital erhalten.",
+    buttonLabel: "Protokoll erhalten",
   },
 ];
 

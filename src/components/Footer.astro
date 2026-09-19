@@ -19,42 +19,42 @@ const footerLinks = [
 ];
 ---
 
-<footer class="footer">
+<footer class="footer" data-ps="src/components/Footer.astro:ikmf32">
   <Container>
-    <div class="footer__grid">
-      <div class="footer__brand">
+    <div class="footer__grid" data-ps="src/components/Footer.astro:p4vf87">
+      <div class="footer__brand" data-ps="src/components/Footer.astro:p4vf88">
         <Logo light />
-        <p class="footer__tagline">{brand.tagline}</p>
+        <p class="footer__tagline" data-ps="src/components/Footer.astro:csfar">{brand.tagline}</p>
       </div>
 
-      <div class="footer__contact">
-        <h2 class="footer__heading">Kontakt</h2>
+      <div class="footer__contact" data-ps="src/components/Footer.astro:p4vf89">
+        <h2 class="footer__heading" data-ps="src/components/Footer.astro:f0091h">Kontakt</h2>
         <address>
           {contact.company}<br />
           {contact.street}<br />
           {contact.city}
         </address>
-        <a href={contact.phoneHref} class="footer__contact-link">
+        <a href={contact.phoneHref} class="footer__contact-link" data-ps="src/components/Footer.astro:7gqc0i">
           <Icon name="phone" size={16} />
           {contact.phoneDisplay}
         </a>
-        <a href={`mailto:${contact.email}`} class="footer__contact-link">
+        <a href={`mailto:${contact.email}`} class="footer__contact-link" data-ps="src/components/Footer.astro:7gqc0j">
           <Icon name="mail" size={16} />
           {contact.email}
         </a>
-        <p class="footer__region">
+        <p class="footer__region" data-ps="src/components/Footer.astro:csfas">
           <Icon name="map-pin" size={16} />
           {contact.region}
         </p>
       </div>
 
-      <nav class="footer__nav" aria-label="Fußzeilen-Navigation">
-        <h2 class="footer__heading">Navigation</h2>
+      <nav class="footer__nav" aria-label="Fußzeilen-Navigation" data-ps="src/components/Footer.astro:dr9u8f">
+        <h2 class="footer__heading" data-ps="src/components/Footer.astro:f0091g">Navigation</h2>
         <ul role="list">
           {
-            footerLinks.map((link) => (
-              <li>
-                <a href={link.href}>{link.label}</a>
+            footerLinks.map((link, __psIdx) => (
+              <li data-ps={`src/components/Footer.astro:wyji7d-${__psIdx}`}>
+                <a href={link.href} data-ps={`src/components/Footer.astro:7gqc0k-${__psIdx}`}>{link.label}</a>
               </li>
             ))
           }
@@ -62,12 +62,12 @@ const footerLinks = [
       </nav>
     </div>
 
-    <div class="footer__legal">
+    <div class="footer__legal" data-ps="src/components/Footer.astro:p4vf8a">
       <LegalDetails />
     </div>
 
-    <div class="footer__bar">
-      <p>© {currentYear} {brand.name}. Alle Rechte vorbehalten.</p>
+    <div class="footer__bar" data-ps="src/components/Footer.astro:p4vf8b">
+      <p data-ps="src/components/Footer.astro:euok">© {currentYear} {brand.name}. Alle Rechte vorbehalten.</p>
     </div>
   </Container>
 </footer>

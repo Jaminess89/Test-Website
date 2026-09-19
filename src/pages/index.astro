@@ -20,6 +20,7 @@ import BerlinDistricts from "../components/BerlinDistricts.astro";
 import FAQ from "../components/FAQ.astro";
 import QuoteForm from "../components/QuoteForm.astro";
 import Footer from "../components/Footer.astro";
+import IntroZo from '@/components/home/IntroZo.astro';
 ---
 
 <BaseLayout
@@ -28,24 +29,25 @@ import Footer from "../components/Footer.astro";
 >
   <TopBar />
   <Header />
-  <main id="main">
+  <main id="main" data-ps="src/pages/index.astro:c51a9c">
     <Hero />
     <TrustBar />
     <TargetGroups />
-    <ProblemCheck />
-    <InspectionScope />
     <Services />
+    <InspectionScope />
+    <BerlinDistricts />
     <Benefits />
     <ProcessSteps />
     <ProtocolPreview />
+    <ProblemCheck />
     <CaseStudy />
     <Testimonials />
     <Pricing />
     <AboutService />
     <ActionReasons />
-    <BerlinDistricts />
     <FAQ />
     <QuoteForm />
   </main>
   <Footer />
+  <IntroZo />
 </BaseLayout>

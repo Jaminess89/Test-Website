@@ -6,20 +6,20 @@ import CheckList from "./ui/CheckList.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="leistungen">
+<section class="section" id="leistungen" data-ps="src/components/Services.astro:6xvf2o">
   <Container>
     <SectionHeading title="Unsere Leistungen" />
     <ul class="grid" role="list">
       {
-        services.map((service) => (
-          <li class="card">
-            <span class="card__icon">
+        services.map((service, __psIdx) => (
+          <li class="card" data-ps={`src/components/Services.astro:1ilqu3-${__psIdx}`}>
+            <span class="card__icon" data-ps={`src/components/Services.astro:6dusxv-${__psIdx}`}>
               <Icon name={service.icon} size={26} />
             </span>
-            <h3 class="card__title">{service.title}</h3>
-            <p class="card__text">{service.text}</p>
+            <h3 class="card__title" data-ps={`src/components/Services.astro:erm31b-${__psIdx}`}>{service.title}</h3>
+            <p class="card__text" data-ps={`src/components/Services.astro:tr7ztk-${__psIdx}`}>{service.text}</p>
             <CheckList items={service.items} class="card__list" />
-            <a href="#angebot" class="card__link">
+            <a href="#angebot" class="card__link" data-ps={`src/components/Services.astro:tzh7uc-${__psIdx}`}>
               {service.title} anfragen
               <Icon name="arrow-right" size={16} />
             </a>

@@ -5,25 +5,30 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import Button from "./ui/Button.astro";
 ---
 
-<section class="section" id="ablauf">
+<section class="section" id="ablauf" data-ps="src/components/ProcessSteps.astro:37b0wl">
   <Container>
     <SectionHeading title="In drei Schritten erledigt" />
     <ol class="steps" role="list">
       {
         processSteps.map((step, index) => (
-          <li class="step">
-            <span class="step__number" aria-hidden="true">
+          <li class="step" data-ps={`src/components/ProcessSteps.astro:em6m7z-${index}`}>
+            <span class="step__number" aria-hidden="true" data-ps={`src/components/ProcessSteps.astro:82g10e-${index}`}>
               {index + 1}
             </span>
-            <h3 class="step__title">{step.title}</h3>
-            <p class="step__text">{step.text}</p>
+            <h3 class="step__title" data-ps={`src/components/ProcessSteps.astro:1d6a0s-${index}`}>{step.title}</h3>
+            <p class="step__text" data-ps={`src/components/ProcessSteps.astro:lmp5s3-${index}`}>{step.text}</p>
+            <Button
+              href="#angebot"
+              variant="outline"
+              class="step__button"
+              data-ps={`src/components/ProcessSteps.astro:button-${index}`}
+            >
+              {step.buttonLabel}
+            </Button>
           </li>
         ))
       }
     </ol>
-    <div class="cta-row">
-      <Button href="#angebot" size="lg" arrow>Festpreis-Angebot anfordern</Button>
-    </div>
   </Container>
 </section>
 
@@ -73,6 +78,13 @@ import Button from "./ui/Button.astro";
   .step__text {
     color: var(--color-text-muted);
     max-width: 22rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .step__button {
+    margin-top: auto;
+    width: 100%;
+    max-width: 180px;
   }
 
   @media (min-width: 800px) {

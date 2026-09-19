@@ -6,22 +6,22 @@ import Button from "./ui/Button.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="handlungsbedarf">
+<section class="section" id="handlungsbedarf" data-ps="src/components/ActionReasons.astro:9vw0hc">
   <Container>
     <SectionHeading title="Wann eine Prüfung sinnvoll ist" />
     <ul class="grid" role="list">
       {
-        actionReasons.map((reason) => (
-          <li class="item">
-            <span class="item__icon">
+        actionReasons.map((reason, __psIdx) => (
+          <li class="item" data-ps={`src/components/ActionReasons.astro:f80utf-${__psIdx}`}>
+            <span class="item__icon" data-ps={`src/components/ActionReasons.astro:f6exjy-${__psIdx}`}>
               <Icon name={reason.icon} size={22} />
             </span>
-            <h3 class="item__title">{reason.title}</h3>
+            <h3 class="item__title" data-ps={`src/components/ActionReasons.astro:1z0im9-${__psIdx}`}>{reason.title}</h3>
           </li>
         ))
       }
     </ul>
-    <div class="cta-row">
+    <div class="cta-row" data-ps="src/components/ActionReasons.astro:10075l">
       <Button href="#angebot" arrow>Situation kostenlos einschätzen lassen</Button>
     </div>
   </Container>

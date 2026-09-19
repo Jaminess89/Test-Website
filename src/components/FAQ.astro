@@ -5,23 +5,23 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="faq">
+<section class="section" id="faq" data-ps="src/components/FAQ.astro:cvmgkv">
   <Container>
     <SectionHeading title="Häufige Fragen" />
-    <div class="list" data-faq-list>
+    <div class="list" data-faq-list data-ps="src/components/FAQ.astro:frt6be">
       {
         faqItems.map((item, index) => (
-          <div class="item">
-            <h3 class="item__heading">
+          <div class="item" data-ps={`src/components/FAQ.astro:frt6bf-${index}`}>
+            <h3 class="item__heading" data-ps={`src/components/FAQ.astro:clqf0g-${index}`}>
               <button
                 type="button"
                 class="item__button"
                 aria-expanded={index === 0 ? "true" : "false"}
                 aria-controls={`faq-panel-${index}`}
                 id={`faq-button-${index}`}
-              >
-                <span>{item.question}</span>
-                <span class="item__chevron">
+               data-ps={`src/components/FAQ.astro:i93d0k-${index}`}>
+                <span data-ps={`src/components/FAQ.astro:58ely5-${index}`}>{item.question}</span>
+                <span class="item__chevron" data-ps={`src/components/FAQ.astro:58ely6-${index}`}>
                   <Icon name="chevron-down" size={20} />
                 </span>
               </button>
@@ -32,8 +32,8 @@ import Icon from "./ui/Icon.astro";
               role="region"
               aria-labelledby={`faq-button-${index}`}
               hidden={index !== 0}
-            >
-              <p class="item__answer">{item.answer}</p>
+             data-ps={`src/components/FAQ.astro:frt6bg-${index}`}>
+              <p class="item__answer" data-ps={`src/components/FAQ.astro:xe7y1-${index}`}>{item.answer}</p>
             </div>
           </div>
         ))

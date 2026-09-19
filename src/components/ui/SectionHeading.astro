@@ -9,9 +9,9 @@ interface Props {
 const { overline, title, lead, align = "center" } = Astro.props;
 ---
 
-<div class:list={["heading", `heading--${align}`]}>
-  {overline && <p class="heading__overline">{overline}</p>}
-  <h2 class="heading__title">{title}</h2>
+<div class:list={["heading", `heading--${align}`]} data-ps="src/components/ui/SectionHeading.astro:a92nve">
+  {overline && <p class="heading__overline" data-ps="src/components/ui/SectionHeading.astro:tv1m8q">{overline}</p>}
+  <h2 class="heading__title" data-ps="src/components/ui/SectionHeading.astro:orsuwv">{title}</h2>
   {lead && <p class="heading__lead">{lead}</p>}
 </div>
 

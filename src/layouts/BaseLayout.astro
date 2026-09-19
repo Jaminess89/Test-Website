@@ -1,5 +1,6 @@
 ---
 import { brand, contact, districts, faqItems } from "../data/site";
+import MobileStickyCTA from "../components/MobileStickyCTA.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -77,9 +78,10 @@ const faqJsonLd = {
     <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
   </head>
-  <body>
-    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <body data-ps="src/layouts/BaseLayout.astro:4vj8al">
+    <a class="skip-link" href="#main" data-ps="src/layouts/BaseLayout.astro:8q42qg">Zum Inhalt springen</a>
     <slot />
+    <MobileStickyCTA phoneNumber={contact.phoneHref} />
   </body>
 </html>
 

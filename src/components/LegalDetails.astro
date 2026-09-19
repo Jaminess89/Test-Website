@@ -2,16 +2,16 @@
 import { legalSections } from "../data/site";
 ---
 
-<div class="legal">
+<div class="legal" data-ps="src/components/LegalDetails.astro:zewmuk">
   {/* TODO: Alle Rechtsangaben sind Platzhalter und müssen vor
       Veröffentlichung vervollständigt und geprüft werden (siehe README). */}
   {
-    legalSections.map((section) => (
+    legalSections.map((section, __psIdx) => (
       <details class="legal__details" id={section.id}>
         <summary class="legal__summary">{section.title}</summary>
-        <div class="legal__body">
-          {section.paragraphs.map((paragraph) => (
-            <p>{paragraph}</p>
+        <div class="legal__body" data-ps={`src/components/LegalDetails.astro:zewmul-${__psIdx}`}>
+          {section.paragraphs.map((paragraph, __psIdx2) => (
+            <p data-ps={`src/components/LegalDetails.astro:oml9rh-${__psIdx2}`}>{paragraph}</p>
           ))}
         </div>
       </details>

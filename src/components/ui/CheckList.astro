@@ -11,12 +11,12 @@ const { items, class: className } = Astro.props;
 
 <ul class:list={["check-list", className]} role="list">
   {
-    items.map((item) => (
-      <li class="check-list__item">
-        <span class="check-list__icon">
+    items.map((item, __psIdx) => (
+      <li class="check-list__item" data-ps={`src/components/ui/CheckList.astro:fghu9d-${__psIdx}`}>
+        <span class="check-list__icon" data-ps={`src/components/ui/CheckList.astro:5x91ri-${__psIdx}`}>
           <Icon name="check" size={15} />
         </span>
-        <span>{item}</span>
+        <span data-ps={`src/components/ui/CheckList.astro:5x91rh-${__psIdx}`}>{item}</span>
       </li>
     ))
   }

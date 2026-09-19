@@ -5,29 +5,29 @@ import SectionHeading from "./ui/SectionHeading.astro";
 import PictureFrame from "./ui/PictureFrame.astro";
 ---
 
-<section class="section" id="beispiel">
+<section class="section" id="beispiel" data-ps="src/components/CaseStudy.astro:lqmnxq">
   <Container>
     <SectionHeading
       overline="Musterbeispiel"
       title="So kann ein Auftrag aussehen"
       lead="Alle Angaben sind ein fiktives Beispiel – keine echten Kundendaten."
     />
-    <div class="layout">
+    <div class="layout" data-ps="src/components/CaseStudy.astro:yocyi1">
       {/* TODO: Platzhalter durch echtes Foto ersetzen (siehe README) */}
       <PictureFrame
-        src="/images/case-study-placeholder.svg"
+        src="https://pagesmith-cdn.com/ceb8c319/images/Bildschirmfoto-2026-07-26-um-12.53.06-640.webp"
         alt="Beispiel eines gepflegten Berliner Mehrfamilienhauses mit grünem Vorgarten"
         width={800}
         height={600}
         ratio="4 / 3"
       />
-      <div class="panel">
-        <p class="panel__label">{caseStudy.label}</p>
-        <h3 class="panel__object">{caseStudy.object}</h3>
+      <div class="panel" data-ps="src/components/CaseStudy.astro:yocyi0">
+        <p class="panel__label" data-ps="src/components/CaseStudy.astro:ker7vu">{caseStudy.label}</p>
+        <h3 class="panel__object" data-ps="src/components/CaseStudy.astro:z62pr1">{caseStudy.object}</h3>
         <dl class="panel__stats">
           {
-            caseStudy.stats.map((stat) => (
-              <div class="panel__stat">
+            caseStudy.stats.map((stat, __psIdx) => (
+              <div class="panel__stat" data-ps={`src/components/CaseStudy.astro:yocyhz-${__psIdx}`}>
                 <dt>{stat.label}</dt>
                 <dd>{stat.value}</dd>
               </div>

@@ -6,25 +6,25 @@ import CheckList from "./ui/CheckList.astro";
 import PictureFrame from "./ui/PictureFrame.astro";
 ---
 
-<section class="section" id="ueber-uns">
+<section class="section" id="ueber-uns" data-ps="src/components/AboutService.astro:ouk84c">
   <Container>
     <SectionHeading
       overline="Persönlich und regional"
       title="Wer hinter Rauchmelder Express steht"
     />
-    <div class="layout">
+    <div class="layout" data-ps="src/components/AboutService.astro:new0wd">
       {/* TODO: Platzhalter durch echtes Porträtfoto ersetzen (siehe README) */}
       <PictureFrame
-        src="/images/service-technician-placeholder.svg"
+        src="https://pagesmith-cdn.com/ceb8c319/images/Bildschirmfoto-2026-07-26-um-12.30.54-1536.webp"
         alt="Servicetechniker von Rauchmelder Express mit Klemmbrett in einem Treppenhaus"
         width={720}
         height={540}
         ratio="4 / 3"
       />
-      <div class="content">
-        <p class="content__name">{about.name}</p>
-        <p class="content__role">{about.role}</p>
-        <p class="content__intro">{about.intro}</p>
+      <div class="content" data-ps="src/components/AboutService.astro:new0we">
+        <p class="content__name" data-ps="src/components/AboutService.astro:mvg9o5">{about.name}</p>
+        <p class="content__role" data-ps="src/components/AboutService.astro:mvg9o4">{about.role}</p>
+        <p class="content__intro" data-ps="src/components/AboutService.astro:mvg9o3">{about.intro}</p>
         <CheckList items={about.points} />
       </div>
     </div>

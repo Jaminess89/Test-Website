@@ -7,34 +7,34 @@ import Button from "./ui/Button.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="preise">
+<section class="section" id="preise" data-ps="src/components/Pricing.astro:z5nod9">
   <Container>
     <SectionHeading title="Klare Angebote statt Überraschungen" />
     <ul class="grid" role="list">
       {
-        pricingItems.map((item) => (
-          <li class="card">
-            <h3 class="card__title">{item.title}</h3>
+        pricingItems.map((item, __psIdx) => (
+          <li class="card" data-ps={`src/components/Pricing.astro:yy5wct-${__psIdx}`}>
+            <h3 class="card__title" data-ps={`src/components/Pricing.astro:mtxtf3-${__psIdx}`}>{item.title}</h3>
             <CheckList items={item.items} />
-            <p class="card__note">{item.note}</p>
+            <p class="card__note" data-ps={`src/components/Pricing.astro:4vhc6v-${__psIdx}`}>{item.note}</p>
           </li>
         ))
       }
     </ul>
 
-    <div class="factors">
-      <h3 class="factors__title">Davon hängt Ihr Angebot ab</h3>
+    <div class="factors" data-ps="src/components/Pricing.astro:dt5mr8">
+      <h3 class="factors__title" data-ps="src/components/Pricing.astro:mtxtf2">Davon hängt Ihr Angebot ab</h3>
       <ul class="factors__list" role="list">
         {
-          priceFactors.map((factor) => (
-            <li class="factors__item">
+          priceFactors.map((factor, __psIdx) => (
+            <li class="factors__item" data-ps={`src/components/Pricing.astro:yy5wcu-${__psIdx}`}>
               <Icon name="check" size={16} />
               {factor}
             </li>
           ))
         }
       </ul>
-      <p class="factors__hint">Sie erhalten vor der Beauftragung ein konkretes Angebot.</p>
+      <p class="factors__hint" data-ps="src/components/Pricing.astro:4vhc6u">Sie erhalten vor der Beauftragung ein konkretes Angebot.</p>
       <Button href="#angebot" arrow>Festpreis anfragen</Button>
     </div>
   </Container>

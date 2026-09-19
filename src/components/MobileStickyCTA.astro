@@ -1,0 +1,123 @@
+---
+interface Props {
+  phoneNumber?: string;
+  phoneLabel?: string;
+  enquiryLabel?: string;
+  enquiryTarget?: string;
+}
+
+const {
+  phoneNumber = "+4915735981964",
+  phoneLabel = "Anrufen",
+  enquiryLabel = "Anfrage",
+  enquiryTarget = "#angebot",
+} = Astro.props;
+---
+
+<div class="mobile-sticky-cta" data-ps="src/components/MobileStickyCTA.astro:main">
+  <a
+    href={`tel:${phoneNumber.replace(/[^+\d]/g, "")}`}
+    class="mobile-sticky-cta__button mobile-sticky-cta__button--phone"
+    aria-label="Jetzt telefonisch Kontakt aufnehmen"
+    data-ps="src/components/MobileStickyCTA.astro:phone"
+  >
+    <svg class="cta-icon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" data-ps="src/components/MobileStickyCTA.astro:icon">
+      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+    </svg>
+    {phoneLabel}
+  </a>
+
+  <a
+    href={enquiryTarget}
+    class="mobile-sticky-cta__button mobile-sticky-cta__button--enquiry"
+    aria-label="Zum Anfrageformular"
+    data-ps="src/components/MobileStickyCTA.astro:enquiry"
+  >
+    {enquiryLabel}
+  </a>
+</div>
+
+<style>
+  .mobile-sticky-cta {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 1px solid rgba(10, 37, 69, 0.12);
+    box-shadow: 0 -8px 24px rgba(7, 24, 45, 0.12);
+  }
+
+  .mobile-sticky-cta__button {
+    min-width: 0;
+    min-height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: var(--radius-lg, 12px);
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-white, #ffffff);
+    text-align: center;
+    line-height: 1.2;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+  }
+
+  .mobile-sticky-cta__button:active {
+    transform: scale(0.98);
+  }
+
+  .mobile-sticky-cta__button:focus-visible {
+    outline: 2px solid var(--color-navy-900, #0a2545);
+    outline-offset: 2px;
+  }
+
+  .mobile-sticky-cta__button--phone {
+    background-color: var(--color-blue-700, #185b91);
+  }
+
+  .mobile-sticky-cta__button--enquiry {
+    background-color: var(--color-emerald-600, #209b52);
+  }
+
+  .cta-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  /* Padding fürs Body-Ende, damit nichts verdeckt wird */
+  :global(body) {
+    padding-bottom: calc(82px + env(safe-area-inset-bottom)); /* 58px Button + 24px Padding */
+  }
+
+  /* Ausblenden ab 769px Desktop */
+  @media (min-width: 769px) {
+    .mobile-sticky-cta {
+      display: none !important;
+    }
+    :global(body) {
+      padding-bottom: 0;
+    }
+  }
+
+  /* Sicherstellen der Darstellung auf sehr schmalen Bildschirmen */
+  @media (max-width: 340px) {
+    .mobile-sticky-cta {
+      gap: 6px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .mobile-sticky-cta__button {
+      font-size: 14px;
+      gap: 6px;
+    }
+  }
+</style>

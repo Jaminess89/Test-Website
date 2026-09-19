@@ -6,27 +6,27 @@ import Button from "./ui/Button.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="section" id="nachweis-check">
+<section class="section" id="nachweis-check" data-ps="src/components/ProblemCheck.astro:4rm9b7">
   <Container>
     <SectionHeading
       title="Ist Ihr Nachweis vollständig?"
       lead="Vier Fragen zeigen, ob noch etwas fehlt."
     />
-    <div class="panel">
+    <div class="panel" data-ps="src/components/ProblemCheck.astro:elwu30">
       <ul class="list" role="list">
         {
           problemChecks.map((check, index) => (
-            <li class="item">
-              <span class="item__number">{String(index + 1).padStart(2, "0")}</span>
-              <span class="item__question">{check.question}</span>
-              <span class="item__icon">
+            <li class="item" data-ps={`src/components/ProblemCheck.astro:abw8hd-${index}`}>
+              <span class="item__number" data-ps={`src/components/ProblemCheck.astro:n9wwvk-${index}`}>{String(index + 1).padStart(2, "0")}</span>
+              <span class="item__question" data-ps={`src/components/ProblemCheck.astro:n9wwvl-${index}`}>{check.question}</span>
+              <span class="item__icon" data-ps={`src/components/ProblemCheck.astro:n9wwvm-${index}`}>
                 <Icon name="question" size={20} />
               </span>
             </li>
           ))
         }
       </ul>
-      <div class="panel__cta">
+      <div class="panel__cta" data-ps="src/components/ProblemCheck.astro:elwu31">
         <Button href="#angebot" arrow>Nachweis kostenlos prüfen lassen</Button>
       </div>
     </div>

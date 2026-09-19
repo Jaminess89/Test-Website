@@ -4,16 +4,16 @@ import Container from "./ui/Container.astro";
 import Icon from "./ui/Icon.astro";
 ---
 
-<section class="trustbar" aria-label="Ihre Vorteile auf einen Blick">
+<section class="trustbar" aria-label="Ihre Vorteile auf einen Blick" data-ps="src/components/TrustBar.astro:qcbyyb">
   <Container>
     <ul class="trustbar__list" role="list">
       {
-        trustPoints.map((point) => (
-          <li class="trustbar__item">
-            <span class="trustbar__icon">
+        trustPoints.map((point, __psIdx) => (
+          <li class="trustbar__item" data-ps={`src/components/TrustBar.astro:qxblb4-${__psIdx}`}>
+            <span class="trustbar__icon" data-ps={`src/components/TrustBar.astro:qh2qkh-${__psIdx}`}>
               <Icon name={point.icon} size={22} />
             </span>
-            <span class="trustbar__label">{point.label}</span>
+            <span class="trustbar__label" data-ps={`src/components/TrustBar.astro:qh2qki-${__psIdx}`}>{point.label}</span>
           </li>
         ))
       }
