@@ -1,0 +1,105 @@
+---
+import Container from '@/components/Container.astro';
+import ReviewSlider from '@/components/home/v2/ReviewSlider.astro';
+
+const trustPoints = [
+  { title: 'Schnell & flexibel:', text: 'Kurzfristige Einsätze jederzeit möglich' },
+  { title: 'Fachgerecht & erfahren:', text: 'Qualifiziertes Personal mit umfassendem Know-how' },
+  { title: 'Rechtssicher & geprüft:', text: 'Schutz vor Bußgeldern, Risiken und Haftung' },
+];
+
+const features: { img: string; alt: string; title: string; text: string; source?: string }[] = [
+  {
+    img: '/images/dguv/DGUV-Messgeraet.png',
+    alt: 'Zertifiziertes DGUV Messgerät',
+    title: 'Professionelle Technik',
+    text: 'Wir führen die Elektroprüfung fachgerecht mit zertifizierten Prüfgeräten durch.',
+  },
+  {
+    img: '/images/dguv/Purfsiegel-Prufplakette-1.png',
+    alt: 'Prüfsiegel und Prüfplakette',
+    title: 'DGUV Prüfberechtigt',
+    text: 'Prüfungen durch Fachbetriebe gemäß den Anforderungen der DGUV Vorschrift 3.',
+    source: 'https://eberswalde-elektriker.de/e-check-dguv-v3-pruefung-eberswalde/',
+  },
+  {
+    img: '/images/dguv/Deutschlandkarte-dguv-v3-prufung.png',
+    alt: 'Einsatzgebiet Berlin',
+    title: 'Einsatz in Berlin',
+    text: 'Wir sind für Berlin aktiv und gewährleisten flexible & verlässliche Prüfleistungen.',
+  },
+  {
+    img: '/images/dguv/Dguv-V3-terminierung.png',
+    alt: 'Kurzfristige Terminvereinbarung',
+    title: 'Kurzfristige Termine',
+    text: 'Durch unser gut aufgestelltes Team können wir auch kurzfristig DGUV V3 Prüfungen zuverlässig durchführen.',
+  },
+];
+---
+
+<section id="warum-wir" class="w-full bg-[#f7f5f1] py-[70px] lg:py-[90px]">
+  <Container>
+    <!-- Überschrift + zweite Instanz des Bewertungs-Sliders direkt darunter -->
+    <div class="text-center max-w-[760px] mx-auto mb-8 sm:mb-10">
+      <p class="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#2fae3f] mb-3">Ihr Fachbetrieb</p>
+      <h2 class="font-heading text-[32px] sm:text-[38px] font-black text-[#062B4A] leading-[1.12] tracking-[-0.02em] m-0">
+        Warum mit uns Prüfen?
+      </h2>
+    </div>
+
+    <div class="mb-16 lg:mb-20">
+      <ReviewSlider />
+    </div>
+
+    <!-- Inhalt der alten Seite -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-14 lg:mb-16">
+      <div class="rounded-[22px] overflow-hidden shadow-[0_20px_50px_rgba(6,43,74,0.14)] border border-[#e8e4dc]">
+        <img
+          src="/images/dguv/Elektriker-zeigt-Prufergebnisse.png"
+          alt="Elektriker zeigt Prüfergebnisse der DGUV V3 Prüfung"
+          width="980"
+          height="654"
+          class="w-full h-auto object-cover aspect-[3/2]"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div>
+        <p class="text-[16px] text-[#33475b] leading-relaxed mb-6">
+          Als zertifizierter Fachbetrieb für DGUV V3 Prüfungen für Berlin sorgen wir dafür, dass Ihre elektrischen Anlagen sicher, zuverlässig und gesetzeskonform arbeiten. Mit erfahrenen Elektrofachkräften bieten wir Ihnen professionelle Prüfungen auf höchstem Niveau.
+        </p>
+        <p class="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#062B4A] mb-4">Darauf können Sie zählen:</p>
+        <ul class="space-y-3 mb-6 list-none p-0 m-0">
+          {trustPoints.map((point) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 inline-grid place-items-center w-6 h-6 shrink-0 rounded-full bg-[#2fae3f] text-white text-[13px] font-black" aria-hidden="true">✓</span>
+              <span class="text-[15.5px] text-[#1c2f41] leading-snug"><strong class="text-[#062B4A]">{point.title}</strong> {point.text}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="text-[15px] text-[#33475b] leading-relaxed mb-7">
+          <strong class="text-[#062B4A]">Jetzt Kontakt aufnehmen!</strong> Wir kümmern uns um Ihre elektrische Sicherheit.
+        </p>
+        <a href="#angebot" class="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-[#3ddc4e] to-[#12af42] text-white text-[16px] font-black px-7 py-3.5 rounded-[14px] no-underline shadow-[0_12px_26px_rgba(82,206,27,0.32)] hover:-translate-y-0.5 transition-transform">
+          Unverbindliches Angebot <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 Merkmal-Boxen mit den Original-Bildern der alten Seite -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {features.map((feature) => (
+        <div class="bg-white border border-[#e8e4dc] rounded-[18px] p-6 text-center hover:shadow-[0_16px_40px_rgba(6,43,74,0.10)] hover:-translate-y-1 transition-all duration-300">
+          <div class="h-[104px] flex items-center justify-center mb-5">
+            <img src={feature.img} alt={feature.alt} class="max-h-full w-auto max-w-[130px] object-contain" loading="lazy" decoding="async" />
+          </div>
+          {feature.source && (
+            <a href={feature.source} target="_blank" rel="noopener noreferrer nofollow" class="block text-[11px] font-semibold text-[#8a97a5] hover:text-[#2fae3f] underline decoration-dotted underline-offset-2 transition-colors -mt-3 mb-3">Bildquelle</a>
+          )}
+          <h3 class="font-heading text-[16.5px] font-black text-[#062B4A] leading-snug mb-2">{feature.title}</h3>
+          <p class="text-[13.5px] text-[#33475b] leading-relaxed m-0">{feature.text}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

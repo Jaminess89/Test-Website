@@ -48,7 +48,7 @@
         "borderRadius": "7px"
       },
       "favicon": "https://www.xn--schlsseldienst-mnchen-cicm.bayern/wp-content/uploads/2020/03/cropped-favicon-32x32.png",
-      "faviconCdn": "https://pagesmith-cdn.com/ceb8c319/images/cropped-favicon-32x32-32.webp"
+      "faviconCdn": "https://pagesmith-cdn.com/2be62e80/images/cropped-favicon-32x32-32.webp"
     },
     "pages": [
       {
@@ -255,8 +255,8 @@
   },
   "metadata": {
     "scraper": "firecrawl-crawl-endpoint",
-    "timestamp": "2026-07-07T11:49:31.950Z",
-    "homepageContentLength": 44983,
+    "timestamp": "2026-07-08T10:35:17.642Z",
+    "homepageContentLength": 44985,
     "imageCount": 113,
     "hasBranding": true,
     "hasElementorEnrichment": false,

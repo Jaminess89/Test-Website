@@ -1,0 +1,204 @@
+---
+interface Review {
+  name: string;
+  text: string;
+}
+
+// Original Google-Bewertungen der alten Website (Trustindex-Widget, 22 Bewertungen)
+const reviews: Review[] = [
+  {
+    name: 'Barbaros Kaman',
+    text: 'Die Anlagen wurden geprüft und sind insgesamt in einem guten und sicheren Zustand. Kleinere Mängel wurden festgestellt, diese sollten zeitnah behoben werden.',
+  },
+  {
+    name: 'Wilfried Hafemeister',
+    text: 'Kurzfristiger Termin nötig wegen Verkauf der Firma die haben das echt innerhalb von 2 Tagen hingekriegt! Preis war gut.',
+  },
+  {
+    name: 'Lipski',
+    text: 'Hatte schon Schiss, dass die Prüfung wieder ewig dauert und teuer wird. war aber total entspannt. Der Prüfer war mega nett, hat alles in 1,5 Std durchgezogen und mir sogar noch einen defekten Wasserkocher gezeigt, den wir sonst nicht gemerkt hätten. Preis war ok, Service top. Machen wir jetzt jedes Jahr mit denen.',
+  },
+  {
+    name: 'Mina',
+    text: 'Die Jungs von der DGUV3 Firma waren gestern da. Ehrlich gesagt hatte ich null Bock drauf, aber die haben das richtig schnell und ohne groß Theater erledigt. Kam einer, hat sich kurz vorgestellt, alles angeschlossen, gemessen, Aufkleber drauf und tschüss. Kein Gelaber, kein „oh das müsste aber mal gewartet werden“ Gequatsche, einfach nur gemacht.',
+  },
+  {
+    name: 'Bobby Kostic',
+    text: 'Echeck erledigt. Kam, prüfte, fertig. Kein Stress, fairer Preis. Top, bis zum nächsten mal buchen.',
+  },
+  {
+    name: 'Tom',
+    text: 'also echt top die jungs! kamen genau zur abgemachten zeit, haben bei uns im lager den ganzen e-check gemacht und sogar noch zwei defekte stecker gleich gewechselt ohne extra abzurechnen. alles super erklärt, papiere direkt mitgenommen und am abend schon die rechnung per mail. kann ich nur empfehlen, endlich mal ne firma die nicht nur kassieren will!',
+  },
+  {
+    name: 'Lara Dilek Inan',
+    text: 'kurzfristig termin gekriegt obwohl die eigentlich voll sind, schon mal klasse. prüfer war nett, hat schoen aufgepasst dass nix dreckig wird und war echt fix fertig. bericht kam zwei tage später, alles übersichtlich und verständlich (bin ja kein elektriker). die paar kleinigkeiten die nicht ok waren hat er mir gleich erklärt wie man das günstig hinbekommt. also ich bin rundum zufrieden, 5 sterne und weiter so!',
+  },
+  {
+    name: 'Mika Kahl',
+    text: 'Der Dguv Techniker war pünktlich, der Techniker freundlich & fachkundig. E-Check gründlich, kleine Mängel (lose Dose, alter FI) direkt behoben ohne Extrakosten. Bericht + Fotos per Mail am selben Tag, Preis fair & transparent.',
+  },
+  {
+    name: 'Truesmile',
+    text: 'Vielen Dank an euch für die super professionelle DGUV V3 Prüfung! Alles schnell, zuverlässig und unkompliziert erledigt. Gerne wieder als kleines Dankeschön eine klare 5-Sterne-Empfehlung! 😊',
+  },
+];
+
+const avatarColors = ['#1d4e79', '#0e7a3d', '#b45309', '#7c3aed', '#0e7490', '#be185d', '#374151', '#166534', '#9a3412'];
+---
+
+<div class="rs" data-review-slider>
+  <!-- Widget-Header: ★★★★★ Excellent · Google · basierend auf 22 Bewertungen -->
+  <div class="flex flex-col items-center text-center mb-8 sm:mb-10">
+    <div class="flex items-center gap-1 mb-2.5" role="img" aria-label="5 von 5 Sternen">
+      {Array.from({ length: 5 }).map(() => (
+        <svg class="w-[22px] h-[22px] text-[#fbbc04]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.8L5.8 21l1.6-7L2 9.3l7.1-.7Z" />
+        </svg>
+      ))}
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5">
+      <span class="text-[17px] font-black uppercase tracking-[0.08em] text-[#062B4A]">Excellent</span>
+      <span class="w-1 h-1 rounded-full bg-[#c8d2dc]" aria-hidden="true"></span>
+      <span class="inline-flex items-center gap-1.5">
+        <svg class="w-[17px] h-[17px]" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z" />
+          <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z" />
+          <path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z" />
+          <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z" />
+        </svg>
+        <span class="text-[14.5px] font-bold text-[#33475b]">Google</span>
+      </span>
+      <span class="w-1 h-1 rounded-full bg-[#c8d2dc]" aria-hidden="true"></span>
+      <span class="text-[14.5px] font-semibold text-[#5b6b7b]">basierend auf <strong class="text-[#062B4A]">22 Bewertungen</strong></span>
+    </div>
+  </div>
+  <!-- Slider -->
+  <div class="relative">
+    <div data-rs-track class="rs-track flex gap-5 overflow-x-auto snap-x snap-mandatory pb-1 -mx-1 px-1">
+      {reviews.map((review, i) => (
+        <figure class="rs-card snap-start shrink-0 basis-[86%] sm:basis-[calc((100%-1.25rem)/2)] xl:basis-[calc((100%-2.5rem)/3)] m-0 bg-white border border-[#e8e4dc] rounded-[18px] p-6 flex flex-col shadow-[0_6px_20px_rgba(6,43,74,0.06)]">
+          <div class="flex items-center gap-3 mb-3.5">
+            <span class="w-10 h-10 shrink-0 rounded-full grid place-items-center text-white text-[16px] font-black" style={`background-color:${avatarColors[i % avatarColors.length]}`} aria-hidden="true">{review.name.charAt(0)}</span>
+            <div class="min-w-0 flex-1">
+              <div class="text-[15px] font-extrabold text-[#062B4A] leading-tight truncate">{review.name}</div>
+              <div class="flex items-center gap-0.5 mt-0.5" aria-label="5 von 5 Sternen">
+                {Array.from({ length: 5 }).map(() => (
+                  <svg class="w-[13px] h-[13px] text-[#fbbc04]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.8L5.8 21l1.6-7L2 9.3l7.1-.7Z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z" />
+              <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z" />
+              <path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z" />
+              <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z" />
+            </svg>
+          </div>
+          <blockquote class="m-0 flex-1 text-[14.5px] leading-relaxed text-[#33475b]">„{review.text}“</blockquote>
+          <figcaption class="mt-4 pt-3.5 border-t border-[#eef0f3] text-[12px] font-bold text-[#8a97a5]">Veröffentlicht auf <span class="text-[#5f6f7f]">Google</span></figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <!-- Pfeile: Desktop (seitlich) -->
+    <button type="button" data-rs-prev class="rs-arrow rs-arrow--prev hidden lg:grid" aria-label="Vorherige Bewertungen">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
+    </button>
+    <button type="button" data-rs-next class="rs-arrow rs-arrow--next hidden lg:grid" aria-label="Weitere Bewertungen">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+    </button>
+  </div>
+
+  <!-- Pfeile: Mobil/Tablet (zentriert darunter) -->
+  <div class="mt-7 flex items-center justify-center gap-3 lg:hidden">
+    <button type="button" data-rs-prev class="rs-arrow grid" aria-label="Vorherige Bewertungen">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
+    </button>
+    <button type="button" data-rs-next class="rs-arrow grid" aria-label="Weitere Bewertungen">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .rs-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+  }
+  .rs-track::-webkit-scrollbar {
+    display: none;
+  }
+  .rs-arrow {
+    width: 46px;
+    height: 46px;
+    border-radius: 9999px;
+    background: #ffffff;
+    border: 1px solid #e2e8ee;
+    color: #062b4a;
+    cursor: pointer;
+    place-items: center;
+    padding: 0;
+    box-shadow: 0 8px 20px rgba(6, 43, 74, 0.12);
+    transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+  }
+  .rs-arrow:hover {
+    transform: translateY(-2px);
+    border-color: #2fae3f;
+  }
+  .rs-arrow.is-disabled {
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .rs-arrow--prev {
+    position: absolute;
+    top: 50%;
+    left: -23px;
+    margin-top: -23px;
+    z-index: 10;
+  }
+  .rs-arrow--next {
+    position: absolute;
+    top: 50%;
+    right: -23px;
+    margin-top: -23px;
+    z-index: 10;
+  }
+</style>
+<script>
+  document.querySelectorAll('[data-review-slider]').forEach((root) => {
+    if (root instanceof HTMLElement && root.dataset.rsInit) return;
+    if (root instanceof HTMLElement) root.dataset.rsInit = '1';
+
+    const track = root.querySelector('[data-rs-track]');
+    if (!track) return;
+
+    const prevs = root.querySelectorAll('[data-rs-prev]');
+    const nexts = root.querySelectorAll('[data-rs-next]');
+
+    const gap = () => {
+      const style = getComputedStyle(track);
+      return parseFloat(style.columnGap || style.gap || '20') || 20;
+    };
+    const step = () => {
+      const card = track.querySelector('.rs-card');
+      return card ? card.getBoundingClientRect().width + gap() : 320;
+    };
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth - 2;
+      const atStart = track.scrollLeft <= 2;
+      const atEnd = track.scrollLeft >= max;
+      prevs.forEach((b) => b.classList.toggle('is-disabled', atStart));
+      nexts.forEach((b) => b.classList.toggle('is-disabled', atEnd));
+    };
+
+    prevs.forEach((b) => b.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' })));
+    nexts.forEach((b) => b.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' })));
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+</script>

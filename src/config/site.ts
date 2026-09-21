@@ -1,15 +1,15 @@
 export const SITE = {
-  name: 'Schlüsseldienst München',
-  title: 'Schlüsseldienst München 24Std. - Türöffnung ab 29€ Festpreis',
-  description: 'Der Schlüsseldienst München ✓ Monteur in 10-40 Min. vor Ort ▷ Türöffnung ohne Schäden ✓ Günstiger 24 Std. Service ✓ EC-Zahlung ☎ Jetzt anrufen!',
+  name: 'DGUV V3 Prüfung Berlin',
+  title: 'DGUV V3 Prüfung Berlin | E-Check nach VDE (BGV A3) | Elektroprüfung',
+  description: 'DGUV V3 Prüfung Berlin ✓ E-Check nach VDE (BGV A3) ✓ Ortsveränderliche Geräte & ortsfeste Anlagen ✓ Prüfprotokoll & Prüfplakette ✓ Kurzfristige Termine ☎ 030 20007607',
   lang: 'de',
-  url: 'https://www.schlüsseldienst-münchen.bayern/',
-  twitterHandle: '@schluesselmuc',
+  url: 'https://xn--elektro-prfdienst-c3b.de/',
+  twitterHandle: '',
   socials: {
-    twitter: 'https://twitter.com/example',
-    instagram: 'https://instagram.com/example',
-    linkedin: 'https://www.linkedin.com/company/example',
-    dribbble: 'https://dribbble.com/example',
+    twitter: '',
+    instagram: '',
+    linkedin: '',
+    dribbble: '',
   },
 } as const;
 

@@ -1,0 +1,54 @@
+---
+import Container from '@/components/Container.astro';
+
+const rows = [
+  { type: 'Ortsveränderliche Betriebsmittel', interval: 'alle 3 bis 48 Monate', note: 'je nach Nutzung' },
+  { type: 'Ortsfeste Betriebsmittel', interval: 'meist alle 48 Monate', note: 'fest installierte Geräte & Anlagen' },
+  { type: 'Regelfall in der Praxis', interval: 'in vielen Fällen jährlich', note: 'bewährter Rhythmus für die meisten Betriebe' },
+];
+---
+
+<section id="prueffristen" class="w-full bg-white py-[70px] lg:py-[90px]">
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+
+      <div>
+        <p class="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#2fae3f] mb-3">Prüffristen</p>
+        <h2 class="font-heading text-[32px] sm:text-[38px] font-black text-[#062B4A] leading-[1.12] tracking-[-0.02em] mb-5">
+          Wie oft sind Geräte &amp; Anlagen zu prüfen?
+        </h2>
+        <p class="text-[16px] text-[#33475b] leading-relaxed mb-5">
+          Die Unfallverhütungsvorschrift schreibt regelmäßige DGUV V3 Prüfungen vor, in vielen Fällen jährlich. Ortsfeste Betriebsmittel sind meist alle 48 Monate zu prüfen, ortsveränderliche Betriebsmittel je nach Nutzung alle 3 bis 48 Monate.
+        </p>
+        <p class="text-[15px] text-[#5b6b7b] leading-relaxed m-0">
+          So behalten Sie die Prüffristen im Blick und stellen sicher, dass alle Geräte und Anlagen dauerhaft den Sicherheitsstandards entsprechen.
+        </p>
+      </div>
+
+      <div class="bg-[#fbfaf8] rounded-[22px] shadow-[0_20px_50px_rgba(6,43,74,0.10)] border border-[#e8e4dc] overflow-hidden">
+        <div class="bg-[#062B4A] px-7 py-5">
+          <h3 class="font-heading text-[19px] font-black text-white m-0">Prüffristen im Überblick</h3>
+        </div>
+        <ul class="divide-y divide-[#e8e4dc] list-none p-0 m-0">
+          {rows.map((row) => (
+            <li class="px-7 py-5">
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-[15px] font-bold text-[#1c2f41]">{row.type}</span>
+                <span class="shrink-0 inline-flex items-center gap-1.5 bg-[#f2f9ee] border border-[#d9ecce] text-[#1c7c2e] text-[13.5px] font-extrabold px-3.5 py-1.5 rounded-full whitespace-nowrap">
+                  <span aria-hidden="true">⏱</span> {row.interval}
+                </span>
+              </div>
+              <p class="text-[13px] text-[#8a97a5] font-semibold mt-1.5 mb-0">{row.note}</p>
+            </li>
+          ))}
+        </ul>
+        <div class="px-7 py-5 bg-white border-t border-[#e8e4dc]">
+          <p class="text-[13px] text-[#5b6b7b] m-0">
+            Die genauen Fristen richten sich nach Art und Beanspruchung der Betriebsmittel und werden im Rahmen der Gefährdungsbeurteilung festgelegt.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </Container>
+</section>

@@ -1,106 +1,157 @@
 ---
-import { brand, contact, districts, faqItems } from "../data/site";
-import MobileStickyCTA from "../components/MobileStickyCTA.astro";
-import "../styles/global.css";
+import '@/styles/global.css';
+import Navigation from '@/components/Navigation.astro';
+import Footer from '@/components/Footer.astro';
+import SEOHead from '@/components/SEOHead.astro';
+import MobileStickyCTA from '@/components/MobileStickyCTA.astro';
+import { SITE } from '@/config/site';
 
-interface Props {
+export interface Props {
   title: string;
-  description: string;
-  canonicalPath?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  jsonLd?: Record<string, any>;
+  noIndex?: boolean;
+  canonicalUrl?: string;
+  lang?: string;
 }
 
-const { title, description, canonicalPath = "/" } = Astro.props;
-const siteUrl = Astro.site ?? new URL("https://example.com");
-const canonicalUrl = new URL(canonicalPath, siteUrl);
-const ogImage = new URL("/social-preview-placeholder.svg", siteUrl);
-
-const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: brand.name,
-  description,
-  url: siteUrl.toString(),
-  telephone: contact.phoneHref.replace("tel:", ""),
-  email: contact.email,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: contact.street,
-    postalCode: "",
-    addressLocality: "Berlin",
-    addressCountry: "DE",
-  },
-  areaServed: [
-    { "@type": "State", name: "Berlin" },
-    { "@type": "State", name: "Brandenburg" },
-    ...districts.map((name) => ({ "@type": "AdministrativeArea" as const, name })),
-  ],
-};
-
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
+const { title, description, image, type, jsonLd, noIndex, canonicalUrl, lang } = Astro.props;
+const htmlLang = lang ?? Astro.currentLocale ?? SITE.lang;
 ---
 
-<!doctype html>
-<html lang="de">
+<!DOCTYPE html>
+<html lang={htmlLang}>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#0a2545" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="de_DE" />
-    <meta property="og:site_name" content={brand.name} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={ogImage} />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(localBusinessJsonLd)} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    <link rel="preload" href="/_pagesmith/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+    <SEOHead
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      jsonLd={jsonLd}
+      noIndex={noIndex}
+      canonicalUrl={canonicalUrl}
+    />
+    <!-- Mark JS as enabled immediately -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
-  <body data-ps="src/layouts/BaseLayout.astro:4vj8al">
-    <a class="skip-link" href="#main" data-ps="src/layouts/BaseLayout.astro:8q42qg">Zum Inhalt springen</a>
-    <slot />
-    <MobileStickyCTA phoneNumber={contact.phoneHref} />
-  </body>
-</html>
+    <body data-ps="src/layouts/BaseLayout.astro:4vj8al">
+      <Navigation />
+      <main data-ps="src/layouts/BaseLayout.astro:yuyoow">
+        <slot />
+      </main>
+      <Footer />
 
-<style>
-  .skip-link {
-    position: absolute;
-    inset-block-start: -100%;
-    inset-inline-start: 1rem;
-    z-index: 200;
-    padding: 0.75rem 1.25rem;
-    background: var(--color-navy-900);
-    color: var(--color-white);
-    border-radius: var(--radius);
-    font-weight: 700;
-    text-decoration: none;
-    transition: inset-block-start 0.2s ease;
-  }
+      <MobileStickyCTA phoneNumber="+493020007607" enquiryTarget="/#angebot" enquiryLabel="Unverbindliches Angebot" />
 
-  .skip-link:focus-visible {
-    inset-block-start: 1rem;
-  }
-</style>
+      <!-- Animation Styles -->
+      <style is:inline>
+        /* Scroll Reveal - Default: visible (for SEO & no-JS) */
+        .reveal,
+        .reveal-left,
+        .reveal-right,
+        .reveal-scale {
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Only hide when JS is enabled */
+        .js .reveal,
+        .js .reveal-left,
+        .js .reveal-right,
+        .js .reveal-scale {
+          opacity: 0;
+        }
+
+        .js .reveal { transform: translateY(30px); }
+        .js .reveal-left { transform: translateX(-30px); }
+        .js .reveal-right { transform: translateX(30px); }
+        .js .reveal-scale { transform: scale(0.95); }
+
+        /* Revealed state */
+        .js .reveal.active,
+        .js .reveal-left.active,
+        .js .reveal-right.active,
+        .js .reveal-scale.active {
+          opacity: 1;
+          transform: translate(0) scale(1);
+        }
+
+        /* Stagger Delays */
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Hover Effects */
+        .hover-lift {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .hover-scale {
+          transition: transform 0.3s ease;
+        }
+
+        .hover-scale:hover {
+          transform: scale(1.05);
+        }
+
+        .hover-glow {
+          transition: box-shadow 0.3s ease;
+        }
+
+        .hover-glow:hover {
+          box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 40%, transparent);
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+          .reveal,
+          .reveal-left,
+          .reveal-right,
+          .reveal-scale,
+          .hover-lift,
+          .hover-scale,
+          .hover-glow {
+            transition: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+          }
+        }
+
+        /* Mobile Sticky CTA Offset */
+        @media (max-width: 768px) {
+          body {
+            padding-bottom: calc(90px + env(safe-area-inset-bottom));
+          }
+        }
+      </style>
+
+      <!-- Scroll Reveal Script -->
+      <script is:inline>
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+          }
+        );
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+          .forEach((el) => revealObserver.observe(el));
+      </script>
+    </body>
+  </html>

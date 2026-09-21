@@ -1,0 +1,77 @@
+---
+import Container from '@/components/Container.astro';
+
+const steps = [
+  {
+    n: '1',
+    title: 'Sichtprüfung',
+    text: 'Die ortsveränderlichen Betriebsmittel werden auf sichtbare Schäden und Abnutzung kontrolliert, damit potenzielle Mängel frühzeitig erkannt und behoben werden können.',
+    bullets: ['Sichtbare Schäden & Abnutzung', 'Früherkennung von Mängeln'],
+    img: '/images/dguv/ortsveranderliche-Sichtprufung.png',
+    alt: 'Sichtprüfung ortsveränderlicher Betriebsmittel',
+  },
+  {
+    n: '2',
+    title: 'Messprüfung',
+    text: 'Die Messprüfung sorgt dafür, dass alle elektrischen Grenzwerte eingehalten werden, etwa die korrekte Funktion des Schutzleiters oder das Verhindern gefährlicher Stromflüsse.',
+    bullets: ['Korrekte Schutzleiter-Funktion', 'Einhaltung aller Grenzwerte', 'Kein gefährlicher Stromfluss'],
+    img: '/images/dguv/Messprufung-Gerate-1.png',
+    alt: 'Messprüfung elektrischer Geräte',
+  },
+  {
+    n: '3',
+    title: 'Funktionsprüfung',
+    text: 'Es wird kontrolliert, ob das ortsveränderliche Gerät und sicherheitsrelevante Bauteile wie Schutzschalter auch unter Belastung, etwa bei Kurzschlüssen, zuverlässig arbeiten.',
+    bullets: ['Schutzschalter & sicherheitsrelevante Bauteile', 'Zuverlässige Funktion unter Belastung'],
+    img: '/images/dguv/funtkionsprufung-Betriebsmittel-1.png',
+    alt: 'Funktionsprüfung von Betriebsmitteln',
+  },
+];
+---
+
+<section id="pruefablauf" class="w-full bg-white py-[70px] lg:py-[90px]">
+  <Container>
+    <div class="max-w-[820px] mx-auto text-center mb-12 lg:mb-14">
+      <p class="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#2fae3f] mb-3">Ablauf der Prüfung</p>
+      <h2 class="font-heading text-[32px] sm:text-[38px] font-black text-[#062B4A] leading-[1.12] tracking-[-0.02em] mb-4">
+        Wie sieht die Prüfung aus?
+      </h2>
+      <p class="text-[16px] text-[#33475b] leading-relaxed m-0">
+        Die DGUV V3 Prüfung besteht aus drei Schritten: Sichtprüfung, Messprüfung und Funktionsprüfung.
+      </p>
+    </div>
+
+    <ol class="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0 m-0">
+      {steps.map((step) => (
+        <li class="group bg-[#fbfaf8] border border-[#e8e4dc] rounded-[20px] overflow-hidden hover:shadow-[0_20px_50px_rgba(6,43,74,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="relative aspect-[3/2] overflow-hidden bg-[#eef2f6]">
+            <img
+              src={step.img}
+              alt={step.alt}
+              width="600"
+              height="400"
+              class="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="absolute top-4 left-4 inline-grid place-items-center w-9 h-9 rounded-xl bg-[#062B4A]/90 backdrop-blur text-[#8ef05a] text-[15px] font-black">
+              {step.n}
+            </span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-heading text-[18px] font-black text-[#062B4A] mb-2">{step.title}</h3>
+            <p class="text-[14.5px] text-[#33475b] leading-relaxed mb-4">{step.text}</p>
+            <ul class="mt-auto space-y-2 pt-4 border-t border-[#eef0f3] list-none p-0">
+              {step.bullets.map((bullet) => (
+                <li class="flex items-start gap-2.5 text-[13.5px] font-semibold text-[#33475b] leading-snug">
+                  <span class="mt-[1px] inline-grid place-items-center w-[18px] h-[18px] shrink-0 rounded-full bg-[#2fae3f] text-white text-[11px] font-black" aria-hidden="true">✓</span>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </Container>
+</section>

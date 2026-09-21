@@ -1,53 +1,67 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import TopBar from "../components/TopBar.astro";
-import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import TrustBar from "../components/TrustBar.astro";
-import TargetGroups from "../components/TargetGroups.astro";
-import ProblemCheck from "../components/ProblemCheck.astro";
-import InspectionScope from "../components/InspectionScope.astro";
-import Services from "../components/Services.astro";
-import Benefits from "../components/Benefits.astro";
-import ProcessSteps from "../components/ProcessSteps.astro";
-import ProtocolPreview from "../components/ProtocolPreview.astro";
-import CaseStudy from "../components/CaseStudy.astro";
-import Testimonials from "../components/Testimonials.astro";
-import Pricing from "../components/Pricing.astro";
-import AboutService from "../components/AboutService.astro";
-import ActionReasons from "../components/ActionReasons.astro";
-import BerlinDistricts from "../components/BerlinDistricts.astro";
-import FAQ from "../components/FAQ.astro";
-import QuoteForm from "../components/QuoteForm.astro";
-import Footer from "../components/Footer.astro";
-import IntroZo from '@/components/home/IntroZo.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroSection from '@/components/home/v2/HeroSection.astro';
+import TrustStrip from '@/components/home/v2/TrustStrip.astro';
+import ReviewsSection from '@/components/home/v2/ReviewsSection.astro';
+import SectionNav from '@/components/home/v2/SectionNav.astro';
+import DutySection from '@/components/home/v2/DutySection.astro';
+import RisksSection from '@/components/home/v2/RisksSection.astro';
+import AdvantagesSection from '@/components/home/v2/AdvantagesSection.astro';
+import AboutSection from '@/components/home/v2/AboutSection.astro';
+import VdeSection from '@/components/home/v2/VdeSection.astro';
+import ScopeSection from '@/components/home/v2/ScopeSection.astro';
+import IntervalsSection from '@/components/home/v2/IntervalsSection.astro';
+import QualificationSection from '@/components/home/v2/QualificationSection.astro';
+import InspectionSection from '@/components/home/v2/InspectionSection.astro';
+import WhyUsSection from '@/components/home/v2/WhyUsSection.astro';
+import OfferSection from '@/components/home/v2/OfferSection.astro';
+import ProcessSection from '@/components/home/v2/ProcessSection.astro';
+import { SITE } from '@/config/site';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Elektroprüfung | DGUV V3 Prüfung Berlin",
+  "description": "DGUV V3 Prüfung in Berlin: Wir prüfen Ihre Geräte & Anlagen nach DGUV Vorschrift 3 (BGV A3). Zertifizierter Fachbetrieb mit Prüfprotokoll & Prüfplakette.",
+  "url": SITE.url,
+  "telephone": "+493020007607",
+  "areaServed": [
+    "Berlin",
+    "Berlin-Mitte",
+    "Friedrichshain-Kreuzberg",
+    "Pankow",
+    "Charlottenburg-Wilmersdorf",
+    "Spandau",
+    "Steglitz-Zehlendorf",
+    "Tempelhof-Schöneberg",
+    "Neukölln",
+    "Treptow-Köpenick",
+    "Marzahn-Hellersdorf",
+    "Lichtenberg",
+    "Reinickendorf"
+  ]
+};
 ---
 
 <BaseLayout
-  title="Rauchmelder-Service Berlin für Vermieter | Rauchmelder Express"
-  description="Prüfung, Montage und Austausch von Rauchwarnmeldern für Vermieter und Hausverwaltungen in Berlin – inklusive digitalem Prüfprotokoll."
+  title="DGUV V3 Prüfung Berlin | E-Check nach VDE · BGV A3 | Elektroprüfung"
+  description="DGUV V3 Prüfung in Berlin vom zertifizierten Fachbetrieb: Wir prüfen Ihre Geräte & Anlagen nach DGUV Vorschrift 3, mit Prüfprotokoll & Prüfplakette. Jetzt unverbindliches Angebot anfordern."
+  jsonLd={jsonLd}
 >
-  <TopBar />
-  <Header />
-  <main id="main" data-ps="src/pages/index.astro:c51a9c">
-    <Hero />
-    <TrustBar />
-    <TargetGroups />
-    <Services />
-    <InspectionScope />
-    <BerlinDistricts />
-    <Benefits />
-    <ProcessSteps />
-    <ProtocolPreview />
-    <ProblemCheck />
-    <CaseStudy />
-    <Testimonials />
-    <Pricing />
-    <AboutService />
-    <ActionReasons />
-    <FAQ />
-    <QuoteForm />
-  </main>
-  <Footer />
-  <IntroZo />
+  <HeroSection />
+  <TrustStrip />
+  <ReviewsSection />
+  <SectionNav />
+  <DutySection />
+  <RisksSection />
+  <AdvantagesSection />
+  <AboutSection />
+  <VdeSection />
+  <ScopeSection />
+  <IntervalsSection />
+  <QualificationSection />
+  <InspectionSection />
+  <WhyUsSection />
+  <OfferSection />
+  <ProcessSection />
 </BaseLayout>

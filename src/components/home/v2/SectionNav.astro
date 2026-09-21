@@ -1,0 +1,28 @@
+---
+import Container from '@/components/Container.astro';
+
+const links = [
+  { label: 'Prüfung: Pflicht?', href: '#pflicht' },
+  { label: 'Risiken + Vorteile', href: '#risiken' },
+  { label: 'Was ist DGUV V3?', href: '#dguv-v3' },
+  { label: 'Was ist zu prüfen?', href: '#pruefumfang' },
+  { label: 'Wie oft prüfen?', href: '#prueffristen' },
+  { label: 'Warum wir?', href: '#warum-wir' },
+];
+---
+
+<nav aria-label="Sprungmarken zu den Bereichen dieser Seite" class="w-full bg-[#f7f5f1] border-y border-[#e8e4dc] py-5 lg:py-6">
+  <Container>
+    <div class="flex flex-wrap items-center justify-center gap-2.5">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="inline-flex items-center gap-1.5 bg-white border border-[#dfe5eb] text-[#062B4A] text-[13.5px] font-bold px-4 py-2 rounded-full no-underline shadow-[0_2px_6px_rgba(6,43,74,0.06)] hover:border-[#2fae3f] hover:text-[#1c7c2e] hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap"
+        >
+          {link.label}
+          <span class="text-[#2fae3f] text-[12px]" aria-hidden="true">↓</span>
+        </a>
+      ))}
+    </div>
+  </Container>
+</nav>

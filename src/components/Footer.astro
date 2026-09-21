@@ -1,163 +1,186 @@
 ---
-import { brand, contact } from "../data/site";
-import Container from "./ui/Container.astro";
-import Logo from "./ui/Logo.astro";
-import Icon from "./ui/Icon.astro";
-import LegalDetails from "./LegalDetails.astro";
+import Container from '@/components/Container.astro';
 
-const currentYear = new Date().getFullYear();
-
-const footerLinks = [
-  { label: "Leistungen", href: "#leistungen" },
-  { label: "Ablauf", href: "#ablauf" },
-  { label: "Prüfprotokoll", href: "#pruefprotokoll" },
-  { label: "Bezirke", href: "#bezirke" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Angebot", href: "#angebot" },
-  { label: "Impressum", href: "#impressum" },
-  { label: "Datenschutz", href: "#datenschutz" },
-];
+const year = new Date().getFullYear();
 ---
 
-<footer class="footer" data-ps="src/components/Footer.astro:ikmf32">
-  <Container>
-    <div class="footer__grid" data-ps="src/components/Footer.astro:p4vf87">
-      <div class="footer__brand" data-ps="src/components/Footer.astro:p4vf88">
-        <Logo light />
-        <p class="footer__tagline" data-ps="src/components/Footer.astro:csfar">{brand.tagline}</p>
-      </div>
+<footer class="relative bg-[#02182b] text-white pt-14 pb-8 overflow-hidden border-t border-white/10">
+  <!-- Subtle top highlight -->
+  <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" aria-hidden="true"></div>
 
-      <div class="footer__contact" data-ps="src/components/Footer.astro:p4vf89">
-        <h2 class="footer__heading" data-ps="src/components/Footer.astro:f0091h">Kontakt</h2>
-        <address>
-          {contact.company}<br />
-          {contact.street}<br />
-          {contact.city}
-        </address>
-        <a href={contact.phoneHref} class="footer__contact-link" data-ps="src/components/Footer.astro:7gqc0i">
-          <Icon name="phone" size={16} />
-          {contact.phoneDisplay}
-        </a>
-        <a href={`mailto:${contact.email}`} class="footer__contact-link" data-ps="src/components/Footer.astro:7gqc0j">
-          <Icon name="mail" size={16} />
-          {contact.email}
-        </a>
-        <p class="footer__region" data-ps="src/components/Footer.astro:csfas">
-          <Icon name="map-pin" size={16} />
-          {contact.region}
+  <Container class="relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 xl:gap-12 pb-12 items-start">
+
+      <!-- Left Column: Brand -->
+      <div class="lg:col-span-4 flex flex-col gap-6">
+        <div class="flex items-center gap-3">
+          <span class="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#1d4e79] to-[#0a2c49] border border-white/20 shrink-0" aria-hidden="true">
+            <svg viewBox="0 0 48 48" class="w-6 h-6">
+              <defs>
+                <linearGradient id="footer-bolt" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#8ef05a" />
+                  <stop offset="100%" stop-color="#2fae3f" />
+                </linearGradient>
+              </defs>
+              <path d="M26.5 6 13 27h8.5L18 42 35 19h-8.5Z" fill="url(#footer-bolt)" />
+            </svg>
+          </span>
+          <div class="flex flex-col leading-tight">
+            <span class="font-heading text-[17px] font-black text-white tracking-tight">DGUV V3 Prüfung Berlin</span>
+            <span class="text-[10px] font-bold tracking-[0.16em] uppercase text-[#63c62f] mt-1">E-Check nach VDE · BGV A3</span>
+          </div>
+        </div>
+        <p class="text-[13px] text-white/60 leading-relaxed max-w-xs m-0">
+          Zertifizierter Fachbetrieb für die DGUV V3 Prüfung in Berlin. Wir prüfen Ihre Geräte &amp; Anlagen nach DGUV Vorschrift 3. Sicher, zuverlässig und gesetzeskonform.
         </p>
       </div>
 
-      <nav class="footer__nav" aria-label="Fußzeilen-Navigation" data-ps="src/components/Footer.astro:dr9u8f">
-        <h2 class="footer__heading" data-ps="src/components/Footer.astro:f0091g">Navigation</h2>
-        <ul role="list">
-          {
-            footerLinks.map((link, __psIdx) => (
-              <li data-ps={`src/components/Footer.astro:wyji7d-${__psIdx}`}>
-                <a href={link.href} data-ps={`src/components/Footer.astro:7gqc0k-${__psIdx}`}>{link.label}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+      <!-- Center Columns: Sektionen & Unternehmen -->
+      <div class="lg:col-span-5 grid grid-cols-2 gap-8">
+
+        <!-- Spalte: Sektionen -->
+        <div>
+          <h4 class="text-[13px] font-extrabold uppercase tracking-wider text-white mb-4">Sektionen</h4>
+          <ul class="flex flex-col gap-2.5">
+            <li>
+              <a href="/#pflicht" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Prüfung: Pflicht?</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#risiken" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Risiken + Vorteile</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#dguv-v3" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Was ist DGUV V3?</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#pruefumfang" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Was ist zu prüfen?</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#prueffristen" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Wie oft prüfen?</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+        <!-- Spalte: Unternehmen -->
+        <div>
+          <h4 class="text-[13px] font-extrabold uppercase tracking-wider text-white mb-4">Unternehmen</h4>
+          <ul class="flex flex-col gap-2.5">
+            <li>
+              <a href="/#warum-wir" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Warum wir</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#pruefablauf" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Prüfablauf</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#ablauf" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Ablauf</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#bewertungen" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Bewertungen</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="/#angebot" class="text-[13px] text-white/70 hover:text-white transition-colors flex items-center justify-between group">
+                <span>Angebot anfordern</span>
+                <span class="text-white/30 group-hover:text-[#63c62f] transition-colors text-[12px]">›</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Column: Kontakt -->
+      <div class="lg:col-span-3">
+        <h4 class="text-[13px] font-extrabold uppercase tracking-wider text-white mb-4">Kontakt</h4>
+        <div class="flex flex-col gap-4">
+
+          <!-- Phone Item -->
+          <a href="tel:+493020007607" class="flex items-center gap-3.5 group no-underline text-white">
+            <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#63c62f] group-hover:border-[#63c62f] transition-colors">
+              <svg class="w-4 h-4 text-white" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 7 8 11c-2 2 1 11 8 19s16 12 19 10l5-6-10-7-5 5c-5-3-9-7-11-12l5-4z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-[14px] font-bold group-hover:text-[#63c62f] transition-colors leading-tight">030 20007607</div>
+              <div class="text-[11px] text-white/60 mt-0.5">Unverbindliches Angebot anfordern</div>
+            </div>
+          </a>
+
+          <!-- Mail Item -->
+          <a href="mailto:info@elektro-prüfdienst.de" class="flex items-center gap-3.5 group no-underline text-white">
+            <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-[#63c62f] group-hover:border-[#63c62f] transition-colors">
+              <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-[14px] font-bold group-hover:text-[#63c62f] transition-colors leading-tight break-all">info@elektro-prüfdienst.de</div>
+              <div class="text-[11px] text-white/60 mt-0.5">Wir antworten i. d. R. innerhalb 24h.</div>
+            </div>
+          </a>
+
+          <!-- Location Item -->
+          <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-[14px] font-bold text-white leading-tight">Berlin und Umgebung</div>
+              <div class="text-[11px] text-white/60 mt-0.5">Vor Ort für Sie da.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="footer__legal" data-ps="src/components/Footer.astro:p4vf8a">
-      <LegalDetails />
-    </div>
+    <!-- Bottom Bar / Legal Links, Disclaimer & Copyright -->
+    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-white/60 text-[12px]">
+      <div class="flex items-center gap-4">
+        <span>Copyright © {year} Elektroprüfung. All Rights Reserved.</span>
+      </div>
 
-    <div class="footer__bar" data-ps="src/components/Footer.astro:p4vf8b">
-      <p data-ps="src/components/Footer.astro:euok">© {currentYear} {brand.name}. Alle Rechte vorbehalten.</p>
+      <!-- Center Legal Links -->
+      <div class="flex items-center gap-6 text-[12px]">
+        <a href="/impressum/" class="text-white/70 hover:text-white transition-colors">Impressum</a>
+        <span class="w-[1px] h-3 bg-white/20" aria-hidden="true"></span>
+        <a href="/datenschutzerklaerung/" class="text-white/70 hover:text-white transition-colors">Datenschutzerklärung</a>
+      </div>
+
+      <!-- Right Disclaimer Text -->
+      <div class="text-[11px] text-white/50 text-center md:text-right max-w-sm">
+        Rechtliche Angaben dienen der allgemeinen Information und ersetzen keine Rechtsberatung.
+      </div>
     </div>
   </Container>
 </footer>
-
-<style>
-  .footer {
-    background: var(--color-navy-950);
-    color: rgb(255 255 255 / 0.8);
-    padding-block: clamp(2.5rem, 5vw, 4rem) 1.5rem;
-  }
-
-  .footer__grid {
-    display: grid;
-    gap: 2.25rem;
-    padding-block-end: 2.25rem;
-  }
-
-  .footer__tagline {
-    margin-block-start: 0.9rem;
-    font-size: 0.92rem;
-    color: rgb(255 255 255 / 0.65);
-  }
-
-  .footer__heading {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-gold-500);
-    margin-block-end: 1rem;
-  }
-
-  .footer__contact address {
-    font-style: normal;
-    line-height: 1.7;
-    margin-block-end: 1rem;
-  }
-
-  .footer__contact-link,
-  .footer__region {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-    min-height: 32px;
-    color: rgb(255 255 255 / 0.85);
-    text-decoration: none;
-    margin-block-end: 0.35rem;
-  }
-
-  .footer__contact-link:hover {
-    color: var(--color-gold-500);
-  }
-
-  .footer__nav ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.35rem 1.5rem;
-    padding: 0;
-    list-style: none;
-  }
-
-  .footer__nav a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 36px;
-    color: rgb(255 255 255 / 0.8);
-    text-decoration: none;
-  }
-
-  .footer__nav a:hover {
-    color: var(--color-gold-500);
-  }
-
-  .footer__legal {
-    padding-block: 1.5rem;
-    border-block-start: 1px solid rgb(255 255 255 / 0.12);
-  }
-
-  .footer__bar {
-    padding-block-start: 1.25rem;
-    border-block-start: 1px solid rgb(255 255 255 / 0.12);
-    font-size: 0.85rem;
-    color: rgb(255 255 255 / 0.55);
-    text-align: center;
-  }
-
-  @media (min-width: 800px) {
-    .footer__grid {
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 3rem;
-    }
-  }
-</style>

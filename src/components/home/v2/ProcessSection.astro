@@ -1,0 +1,103 @@
+---
+import Container from '@/components/Container.astro';
+
+const steps = [
+  {
+    n: 1,
+    icon: 'phone',
+    title: 'Kontaktaufnahme',
+    text: 'Melden Sie sich telefonisch oder über unser Kontaktformular und teilen Sie uns mit, wie viele ortsveränderbare Geräte geprüft werden sollen.',
+  },
+  {
+    n: 2,
+    icon: 'doc',
+    title: 'Unverbindliches Angebot anfordern',
+    text: 'Sobald wir Ihren Prüfbedarf kennen, erhalten Sie ein maßgeschneidertes und unverbindliches Angebot für die DGUV V3 Prüfung.',
+  },
+  {
+    n: 3,
+    icon: 'check',
+    title: 'Auftrag bestätigen',
+    text: 'Nach Ihrer schriftlichen Zusage erhalten Sie von uns eine Auftragsbestätigung.',
+  },
+  {
+    n: 4,
+    icon: 'calendar',
+    title: 'Terminvereinbarung',
+    text: 'Gemeinsam legen wir fest, wann und wo die Prüfung stattfindet, und stimmen den genauen Ablauf mit Ihnen ab.',
+  },
+  {
+    n: 5,
+    icon: 'bolt',
+    title: 'Prüfung vor Ort',
+    text: 'Zum vereinbarten Termin führen unsere Fachkräfte die Prüfung durch. Erfolgreich geprüfte Betriebsmittel erhalten eine Prüfplakette.',
+  },
+  {
+    n: 6,
+    icon: 'folder',
+    title: 'Prüfunterlagen erhalten',
+    text: 'Nach Abschluss der Prüfung stellen wir Ihnen alle relevanten Dokumente (Prüfprotokoll, Nachweise und Rechnung) digital in Ihrem Kundenbereich zur Verfügung.',
+  },
+];
+---
+
+<section id="ablauf" class="w-full bg-white py-[70px] lg:py-[90px]">
+  <Container>
+    <div class="max-w-[820px] mx-auto text-center mb-12 lg:mb-14">
+      <p class="text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#2fae3f] mb-3">So einfach geht's</p>
+      <h2 class="font-heading text-[32px] sm:text-[38px] font-black text-[#062B4A] leading-[1.12] tracking-[-0.02em] m-0">
+        Wie funktioniert der Ablauf?
+      </h2>
+    </div>
+
+    <ol class="relative max-w-[780px] mx-auto list-none p-0 m-0">
+      {steps.map((step, i) => (
+        <li class="relative pl-[76px] sm:pl-[92px] pb-6 last:pb-0">
+          {i < steps.length - 1 && (
+            <span class="absolute left-[26px] top-[58px] bottom-[-24px] w-[3px] rounded-full bg-gradient-to-b from-[#2fae3f]/40 to-[#7ee84d]/40" aria-hidden="true"></span>
+          )}
+          <span class="absolute left-0 top-0 inline-grid place-items-center w-[54px] h-[54px] rounded-[18px] bg-gradient-to-b from-[#7ee84d] to-[#2fae3f] text-[#06210f] text-[21px] font-black shadow-[0_10px_24px_rgba(82,206,27,0.4)]" aria-hidden="true">
+            {step.n}
+          </span>
+          <div class="bg-[#fbfaf8] border border-[#e8e4dc] rounded-[18px] p-5 sm:p-6 hover:shadow-[0_16px_40px_rgba(6,43,74,0.10)] transition-shadow duration-300">
+          <div class="flex items-center gap-3 mb-2.5">
+            <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-[#062B4A] text-[#8ef05a] shrink-0" aria-hidden="true">
+              {step.icon === 'phone' && (
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
+              )}
+              {step.icon === 'doc' && (
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /><path d="M9 13h6" /><path d="M9 17h6" /></svg>
+              )}
+              {step.icon === 'check' && (
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg>
+              )}
+              {step.icon === 'calendar' && (
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h18" /></svg>
+              )}
+              {step.icon === 'bolt' && (
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+              )}
+              {step.icon === 'folder' && (
+                <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></svg>
+              )}
+            </span>
+            <h3 class="font-heading text-[17px] font-black text-[#062B4A] leading-snug m-0">{step.title}</h3>
+          </div>
+          <p class="text-[14.5px] text-[#33475b] leading-relaxed m-0">{step.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <!-- Kontakt-CTA -->
+    <div class="mt-12 lg:mt-14 bg-[#062B4A] rounded-[22px] px-7 py-8 sm:px-10 flex flex-col lg:flex-row items-center gap-6 justify-between text-center lg:text-left shadow-[0_20px_50px_rgba(6,43,74,0.25)]">
+      <div>
+        <h3 class="font-heading text-[22px] font-black text-white mb-1.5 mt-0">Nehmen Sie jetzt Kontakt auf:</h3>
+        <p class="text-[15px] text-[#b9c9d6] m-0">Tragen Sie Ihre Daten ins Formular ein. Wir erstellen Ihnen umgehend ein unverbindliches Angebot.</p>
+      </div>
+      <a href="#angebot" class="shrink-0 inline-flex items-center justify-center gap-2 bg-gradient-to-br from-[#3ddc4e] to-[#12af42] text-white text-[16px] font-black px-7 py-3.5 rounded-[14px] no-underline shadow-[0_12px_26px_rgba(82,206,27,0.35)] hover:-translate-y-0.5 transition-transform">
+        Jetzt ausfüllen ➝ Angebot erhalten!
+      </a>
+    </div>
+  </Container>
+</section>
