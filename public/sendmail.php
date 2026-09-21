@@ -86,8 +86,7 @@ $htmlBody = <<<HTML
         <!-- Header -->
         <tr>
           <td style="background-color:#062B4A;padding:24px 30px 22px;">
-            <div style="color:#8ef05a;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:2.5px;text-transform:uppercase;">elektro-pr&uuml;fdienst.de</div>
-            <div style="color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:21px;font-weight:bold;line-height:1.3;padding-top:7px;">Neue Anfrage &uuml;ber das Kontaktformular</div>
+            <div style="color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:21px;font-weight:bold;line-height:1.3;">Neue Anfrage &uuml;ber das Kontaktformular</div>
           </td>
         </tr>
         <tr><td style="background-color:#58d21f;height:4px;font-size:0;line-height:0;">&nbsp;</td></tr>
