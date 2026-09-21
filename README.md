@@ -6,7 +6,8 @@ Live: https://elektro-prüfdienst.de (https://xn--elektro-prfdienst-c3b.de)
 ## Tech-Stack
 
 - [Astro](https://astro.build) (statischer Build) + Tailwind CSS 4
-- Kein Server-Backend nötig; Formular läuft über FormSubmit (AJAX)
+- Formular-Backend: eigenes `public/sendmail.php` (PHP mail() auf dem
+  ALL-INKL-Server, Antwort < 1 s, keine Drittanbieter, DSGVO-freundlich)
 - Cloudflare-Adapter ist konfiguriert, das Deployment erfolgt aber als
   statischer Upload (`dist/client`) auf klassischem Webhosting (ALL-INKL / KAS)
 

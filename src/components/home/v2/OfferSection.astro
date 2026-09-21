@@ -18,6 +18,8 @@ import Container from '@/components/Container.astro';
 
       <div class="card bg-white rounded-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.45)] p-7 sm:p-10 text-[#1c2f41]">
         <form id="offer-form" novalidate>
+          {/* Honeypot gegen Spam-Bots (für Menschen unsichtbar, nicht ausfüllen) */}
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="absolute left-[-9999px] w-px h-px opacity-0" />
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
             <div>
               <label for="of-name" class="block text-[13px] font-extrabold uppercase tracking-wide text-[#33475b] mb-1.5">Name <span class="text-[#e11d48]">*</span></label>
@@ -127,24 +129,17 @@ import Container from '@/components/Container.astro';
         submitBtn.textContent = 'Wird gesendet …';
       }
 
-      const payload = {
-        _subject: 'Neue Anfrage über das Kontaktformular | DGUV V3 Prüfung Berlin',
-        _template: 'table',
-        _captcha: 'false',
-        Name: document.getElementById('of-name').value.trim(),
-        Telefon: document.getElementById('of-phone').value.trim(),
-        'E-Mail': document.getElementById('of-email').value.trim(),
-        PLZ: document.getElementById('of-plz').value.trim(),
-        Nachricht: document.getElementById('of-message').value.trim(),
-      };
-
       try {
-        const res = await fetch('https://formsubmit.co/ajax/vertrieb@xn--elektro-prfdienst-c3b.de', {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 20000);
+        const res = await fetch('/sendmail.php', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload),
+          body: new FormData(offerForm),
+          signal: controller.signal,
         });
-        if (!res.ok) throw new Error('send failed');
+        clearTimeout(timeoutId);
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) throw new Error('send failed');
         offerForm.classList.add('hidden');
         if (ofSuccess) ofSuccess.classList.remove('hidden');
       } catch (err) {
